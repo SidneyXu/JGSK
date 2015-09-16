@@ -31,10 +31,13 @@ public class DataType {
 
         //  Type Inference
         Object foo = "foo";
+        bar(foo);
+    }
+
+    private static void bar(Object foo) {
         if (foo instanceof String) {
             String fooString = (String) foo;
             System.out.println(fooString.toUpperCase());
         }
-
     }
 }

@@ -33,9 +33,13 @@ fun main(args: Array<String>) {
     println("99.12".toDouble())
 
     //  Type Inference
-    val foo = "foo";
+    val foo = "foo"
+    val fooString: String = foo as String
+    bar(foo)
+}
+
+fun bar(foo: Any) {
     if (foo is String) {
-        val fooString: String = foo as String
-        println("foo is String")
+        println(foo.toUpperCase())
     }
 }

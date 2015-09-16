@@ -41,9 +41,19 @@ class DataType {
         println("99.12".toDouble())
 
         //  Type Inference
-        Object foo = "foo";
+        def foo = "foo"
+        bar(foo)
+    }
+
+    def static bar(foo) {
         if (foo instanceof String) {
             println(foo.toUpperCase())
+        }
+        if (foo instanceof Double) {
+            println(foo.intValue())
+        }
+        if (foo.isDouble()) {
+            println(foo.toDouble())
         }
     }
 }

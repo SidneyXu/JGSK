@@ -15,7 +15,7 @@ object DataType {
     var flag: Boolean = false
 
     //  BigDecimal
-    println(BigDecimal(2) - BigDecimal(1.8))
+    println(BigDecimal(2) - BigDecimal(1.8)) //  0.2
 
     //  Type Conversion
     //  Implicit Conversion
@@ -29,10 +29,14 @@ object DataType {
     println("99.12".toDouble)
 
     //  Type Inference
-    val foo = "foo"
+    val foo: Any = "foo"
+    bar(foo)
+  }
+
+  def bar(foo: Any): Unit = {
     if (foo.isInstanceOf[String]) {
       val fooString: String = foo.asInstanceOf[String]
-      println("foo is String")
+      println(fooString.toUpperCase)
     }
   }
 }
