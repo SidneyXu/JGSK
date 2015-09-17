@@ -23,7 +23,7 @@ class App {
 
         //  Template
         def name = "Peter"
-        def str = "name=${name}, ${if (name.length() > 10) 10 else name.length()}";
+        def str = "name=${name}, ${if (name.length() > 10) 10 else name.length()}"
         println(str)    //  name=Peter, 5
 
         //  Single Quote String

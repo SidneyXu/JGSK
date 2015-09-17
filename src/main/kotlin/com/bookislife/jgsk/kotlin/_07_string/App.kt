@@ -22,7 +22,7 @@ fun main(args: Array<String>) {
 
     //  Template
     val name = "Peter";
-    val str = "name=${name}, ${if (name.length() > 10) 10 else name.length()}";
+    val str = "name=${name}, ${if (name.length() > 10) 10 else name.length()}"
     println(str)    //  name=Peter, 5
 
     //  Methods
