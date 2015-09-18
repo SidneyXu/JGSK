@@ -1,17 +1,20 @@
 package com.bookislife.jgsk.kotlin._11_if
 
 /**
-* Created by SidenyXu on 2015/09/18.
-*/
+ * Created by SidneyXu on 2015/09/18.
+ */
 fun main(args: Array<String>) {
     //  If
-    val i = 0
-    if (i != 0) {
-        println(true)
+    val x = 1
+    val y = 2
+    if (x + y == 3) {
+        println ("x+y=3")
     } else {
-        println(false)
+        println ("x+y!=3")
     }
 
-    val list = emptyList<Int>()
-    if (list.isNotEmpty()) println(true) else println(false)
+    if (x + y == 3)
+        println ("x+y=3")
+    else
+        println ("x+y!=3")
 }

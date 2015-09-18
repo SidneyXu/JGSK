@@ -7,14 +7,17 @@ class App {
 
     public static void main(String[] args) {
         //  If
-        def i = 0
-        if (i) {
-            println true
+        def x = 1
+        def y = 2
+        if (x + y == 3) {
+            println "x+y=3"
         } else {
-            println false
+            println "x+y!=3"
         }
 
-        def list = []
-        if (list) println true else println false
+        if (x + y == 3)
+            println "x+y=3"
+        else
+            println "x+y!=3"
     }
 }

@@ -7,13 +7,11 @@ class App {
 
     public static void main(String[] args) {
         //  Null
-        def result = 0
         Integer x = null
         println(x == null)
         println(x.is(null))
-        //  Wrong!! java.lang.NullPointerException
-//        result = x + 3
 
+        //  NullPointerException
         //  Safe Operator
         List<Person> persons = [null, new Person("Peter")]
         for (Person p : persons) {

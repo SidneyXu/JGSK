@@ -12,19 +12,18 @@ public class App {
 
     public static void main(String[] args) {
         //  Null
-        int result = 0;
         Integer x = null;
         System.out.println(x == null);
-        //  Wrong!! java.lang.NullPointerException
-        //      int  result = x + 3;
 
-        //  Safe Operator
-        //  Not Nullable
-        //  Wrong!! java.lang.NullPointerException
-        //        Optional<Integer> notNullableX = Optional.of(x);
-
-        //  Nullable
-        final Optional<Integer> nullableX = Optional.ofNullable(x);
+        //  NullPointerException
+        //  Optional
+        int result;
+        if (x != null) {
+            result = 3 + x;
+        } else {
+            result = 0;
+        }
+        Optional<Integer> nullableX = Optional.ofNullable(x);
         result = 3 + nullableX.orElseGet(new Supplier<Integer>() {
             public Integer get() {
                 return 0;
@@ -36,8 +35,9 @@ public class App {
             add(new Person("Peter"));
         }};
         for (Person p : persons) {
-            //  Wrong!!
-            //            System.out.println(p.getName());
+            if (p != null) {
+                p.getName();
+            }
         }
 
         List<Optional<Person>> opPersons = new ArrayList<Optional<Person>>() {{

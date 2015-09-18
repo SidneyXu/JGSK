@@ -7,11 +7,11 @@ fun main(args: Array<String>) {
     //  Null
     var result = 0
     var x = null
-    kotlin.io.println(x == null)
-    kotlin.io.println(x.isNullOrEmpty())
-    //  Wrong!! Found kotlin.String Require kotlin.Int
-    //    result = x + 3
+    println(x == null)
+    println(x.isNullOrEmpty())
+    println(x.isNullOrBlank())
 
+    //  NullPointerException
     //  Nullable types and Non-Null Types
     var nonNullString: String = "foo"
     //  Wrong!!
@@ -21,19 +21,23 @@ fun main(args: Array<String>) {
     nullableString = null
 
     //  Safe Operator
-    var y: Int? = null
-    val nullableResult: Int? = y?.plus(3)
-    kotlin.io.println(nullableResult)
-
-    //  Smart Cast
-    //  Wrong!! Not allowed
-    //    y + 3
-    if (y != null) {
-        println(y + 3)
+    val persons = listOf(null, Person("Peter"))
+    for (p in persons) {
+        println(p?.name)
     }
 
+    var y: Int? = null
+    val nullableResult: Int? = y?.plus(3)
+    println(nullableResult)
 
     //  The !! Operator
-    y!!.plus(3)
+    y = 10
+    val nullableSum: Int? = y?.plus(3)
+    val nonNullSum: Int = y!!.plus(3)
 
+    //  Safe Case
+    val xInt: Int? = x as? Int
+}
+
+class Person(val name: String) {
 }

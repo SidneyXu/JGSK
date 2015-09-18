@@ -7,15 +7,18 @@ object App {
 
   def main(args: Array[String]) {
     //  If
-    val i = 0
-    if (i != 0) {
-      println(true)
+    val x = 1
+    val y = 2
+    if (x + y == 0) {
+      println("x+y==3")
     } else {
-      println(false)
+      println("x+y!=3")
     }
 
-    val list = List()
-    if (list.nonEmpty) println(true) else println(false)
+    if (x + y == 3)
+      println("x+y==3")
+    else
+      println("x+y!=3")
   }
 
 }

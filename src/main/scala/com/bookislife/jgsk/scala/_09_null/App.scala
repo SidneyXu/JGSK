@@ -7,13 +7,11 @@ object App {
 
   def main(args: Array[String]) {
     //  Null
-    var result = 0
     val x = null
     println(x == null)
-    //  Wrong!! value + is not a member of Null
-    //    result = x + 3
 
-    //  Safe Operator
+    //  NullPointerException
+    //  Option
     val persons: List[Option[Person]] = List(None, Option(new Person("Peter")))
     for (p <- persons) {
       if (p isDefined) {
@@ -23,7 +21,6 @@ object App {
   }
 
   class Person(val name: String) {
-
   }
 
 }
