@@ -1,7 +1,7 @@
 package com.bookislife.jgsk.scala._11_if
 
 /**
- * Created by SidenyXu on 2015/09/18.
+ * Created by SidneyXu on 2015/09/18.
  */
 object App {
 
