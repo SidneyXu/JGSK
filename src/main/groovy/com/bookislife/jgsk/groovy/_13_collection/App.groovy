@@ -16,11 +16,19 @@ class App {
         def arr = new int[3]
         def arr2 = [1, 2, 3] as int[]
 
+        //  Length
+        println(arr.length)
+
         //  Modify Elements
         arr[0] = 10
 
         //  Access Elements
         println(arr[0])
+
+        //  Traverse
+        for (int a : arr2) {
+            println("Traverse " + a);
+        }
     }
 
     static def testList() {
@@ -31,6 +39,9 @@ class App {
         assert list instanceof Collection
         assert list instanceof ArrayList
 
+        //  Length
+        println(list.size())
+
         //  Modify List
         //  Add Elements
         list.add("Rust")
@@ -39,7 +50,8 @@ class App {
 
         //  Modify Elements
         list.putAt(9, "Python")
-        println list            //[Groovy, Java, Scala, Rust, Katlin, null, null, null, null, null, Python, Ruby]
+        println list
+        //[Groovy, Java, Scala, Rust, Katlin, null, null, null, null, null, Python, Ruby]
 
         //  Delete Elements
         list.remove(1);
@@ -52,7 +64,8 @@ class App {
 
         //  New List
         def newList = list - ["Ruby", "Rust", "Kotlin"] + "Swift"
-        println list            //[Groovy, Java, Scala, Rust, Katlin, null, null, null, null, null, Ruby]
+        println list
+        //[Groovy, Java, Scala, Rust, Katlin, null, null, null, null, null, Ruby]
         println newList           //[Groovy, Java, Scala, null, null, null, null, null, Swift]
 
         //  Spread Operator
@@ -72,6 +85,10 @@ class App {
         println list.reverse()                  //[3, 2, 1]
         println list.sort()                     //[1, 2, 3]
 
+        //  Traverse
+        for (lang in list) {
+            println("Traverse " + lang);
+        }
     }
 
     static void testRange() {

@@ -14,11 +14,19 @@ fun testArray() {
     val arr = arrayOfNulls<Int>(3)
     val arr2 = arrayOf(1, 2, 3)
 
+    //  Length
+    println(arr.size())
+
     //  Modify Elements
     arr[0] = 10
 
     //  Access Elements
     println(arr[0])
+
+    //  Traverse
+    for (a in arr2) {
+        println("Traverse $a")
+    }
 }
 
 fun testList() {
@@ -48,6 +56,14 @@ fun testList() {
         it.toUpperCase()
     }forEach { print("${it},") }
     println()   //  MARY,MIKE,
+
+    //  Length
+    println(list.size())
+
+    //  Traverse
+    for (lang in list) {
+        println("Traverse $lang")
+    }
 }
 
 fun testRange() {

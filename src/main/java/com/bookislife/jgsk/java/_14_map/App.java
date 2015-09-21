@@ -22,6 +22,9 @@ public class App {
         map.put("age", 12);
         map.put("national", "USA");
 
+        //  Delete
+        map.remove("age");
+
         //  Get
         String name = (String) map.get("name");
         System.out.println(name);
@@ -30,5 +33,13 @@ public class App {
         System.out.println(height);
 
         System.out.println(map);
+
+        //  Length
+        System.out.println(map.size());
+
+        //  Traverse
+        for (Map.Entry<String, Object> entry : map.entrySet()) {
+            System.out.println("Traverse " + entry.getKey() + " is " + entry.getValue());
+        }
     }
 }

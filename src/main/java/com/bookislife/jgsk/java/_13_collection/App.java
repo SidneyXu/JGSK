@@ -1,6 +1,9 @@
 package com.bookislife.jgsk.java._13_collection;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 /**
  * Created by SidneyXu on 2015/09/20.
@@ -17,11 +20,19 @@ public class App {
         int[] arr = new int[3];
         int[] arr2 = {1, 2, 3};
 
+        //  Length
+        System.out.println(arr.length);
+
         //  Modify Elements
         arr[0] = 10;
 
         //  Access Elements
         System.out.println(arr[0]);
+
+        //  Traverse
+        for (int a : arr2) {
+            System.out.println("Traverse " + a);
+        }
     }
 
     private static void testList() {
@@ -31,6 +42,9 @@ public class App {
         List emptyList = Collections.emptyList();
         //  Wrong!! UnsupportedOperationException
         //        emptyList.add(1);
+
+        //  Length
+        System.out.println(list.size());
 
         //  Modify List
         //  Add Elements
@@ -62,5 +76,10 @@ public class App {
 
         //  Immutable List
         List<String> immuatbleList = Collections.unmodifiableList(list);
+
+        //  Traverse
+        for (String lang : list) {
+            System.out.println("Traverse " + lang);
+        }
     }
 }

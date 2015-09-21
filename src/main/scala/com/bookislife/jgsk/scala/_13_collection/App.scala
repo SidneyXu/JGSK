@@ -39,6 +39,14 @@ object App {
 
     //  ArrayBuffer to Array
     val arr4 = abuffer.toArray
+
+    //  Length
+    println(arr2.length)
+
+    //  Traverse
+    for (a <- arr2) {
+      println(s"Traverse $a")
+    }
   }
 
   def testList(): Unit = {
@@ -103,6 +111,15 @@ object App {
     var list2 = List(List(1, 2), List(3, 4))
     var result = list2.flatten
     println(result, result.getClass) //  (List(1, 2, 3, 4),class scala.collection.immutable.$colon$colon)
+
+
+    //  Length
+    println(list.length)
+
+    //  Traverse
+    for (lang <- list) {
+      println(s"Traverse $lang")
+    }
   }
 
   def testSet(): Unit = {
