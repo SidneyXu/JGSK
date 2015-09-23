@@ -6,7 +6,18 @@ package com.bookislife.jgsk.groovy._16_method
 class App {
 
     public static void main(String[] args) {
-        //  Method
+        testMethod()
+        testClosure()
+
+        //  Function Literal
+        def excite = { word ->
+            "$word!!"
+        }
+        println(excite("Java"))
+        println(excite.call("Groovy"))
+    }
+
+    def static testMethod() {
         //  Static Method
         say("Peter", "Goodbye")
 
@@ -14,10 +25,11 @@ class App {
         say("Peter")
 
         //  Return Values
-        def calculator = new Calculator();
+        def calculator = new Calculator()
         println(calculator.add(2, 3))
+    }
 
-        //  Closure
+    def static testClosure() {
         def langs = ["Java", "Groovy", "Scala", "Kotlin"]
         langs.each {
             println it
@@ -29,21 +41,13 @@ class App {
         map.each { key, value ->
             println("$key=$value")
         }
-
-        //  Function Literal
-        def excite = { word ->
-            "$word!!"
-        }
-        println(excite("Java"))
-        println(excite.call("Groovy"))
     }
 
     def static say(name, word = "Hello") {
         println("$word $name")
     }
 
-    def static max(int[] arr, Closure<Boolean> closure){
-
+    def static max(int[] arr, Closure<Boolean> closure) {
     }
 
 }
