@@ -16,6 +16,9 @@ object MethodExample {
 
     println(c.functionInc()) //()
     println(c.acc) //2
+
+    println(c.mehodInn)
+    println(c.acc)
   }
 
   class C {
@@ -28,6 +31,10 @@ object MethodExample {
 
     // a function, return value is a function
     def functionInc = { () => acc += 1 }
+
+    val mehodInn = { () =>
+      acc += 1
+    }
   }
 
 }
