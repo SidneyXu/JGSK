@@ -9,17 +9,21 @@ fun main(args: Array<String>) {
 }
 
 fun testMethod() {
-    //  Static Method
-
     //  Varargs
+    val calculator = Calculator()
+    calculator.sum(1, 2, 3)
 
     //  Default Values
+    say("Peter")
+
+    //  Return Values
+    println(calculator.add(2, 3))
 }
 
 
 fun testClosure() {
     //  Define
-//    { (x:Int) => println("foo") }
+    {(x: Int) -> println("foo") }
 }
 
 fun say(name: String, word: String = "Hello") {
@@ -27,11 +31,12 @@ fun say(name: String, word: String = "Hello") {
 }
 
 class Calculator {
-    fun add(x: Int, y: Int) {
-        x + y
+    fun add(x: Int, y: Int): Int {
+        return x + y
     }
 
-    fun sum() {
-
+    fun sum(vararg n: Int) {
+        println(n.sum())
     }
+
 }

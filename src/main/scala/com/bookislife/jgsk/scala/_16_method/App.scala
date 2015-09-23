@@ -11,8 +11,12 @@ object App {
   }
 
   def testMethod(): Unit = {
-    //  Varargs
+    //  Parameters
     val calculator = new Calculator
+    calculator.info()
+    calculator.info2
+
+    //  Varargs
     calculator.sum(1, 2, 3)
 
     //  Default Values
@@ -27,23 +31,15 @@ object App {
     { () => println("foo") }
 
     //  Closure as an Object
-    def excite = { word: String =>
+    def excite = (word: String) =>
       s"$word!!"
-    }
 
     //  Calling a closure
     println(excite("Java"))
 
     //  Parameters
-    def plus = { (x: Int, y: Int) =>
+    def plus =  (x: Int, y: Int) =>
       println(s"$x plus $y is ${x + y}")
-    }
-
-    //  Implicit Parameter
-    //  Wrong!!
-    //    def greeting = s"Hello, $_ !"
-    def greeting = (_: String) => "Hello, " + _ + " !"
-    greeting("Peter")
 
     //  Varargs
     //  Wrong!! Not supported
@@ -83,6 +79,14 @@ object App {
 
     def sum(n: Int*) {
       println(n.sum)
+    }
+
+    def info(): Unit = {
+      println("This is a class called Calculator.")
+    }
+
+    def info2: Unit = {
+      println("This is a class called Calculator.")
     }
   }
 
