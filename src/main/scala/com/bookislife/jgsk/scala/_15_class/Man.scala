@@ -12,7 +12,7 @@ class Man(val name: String,
 
   println("Sentences in Main Constructor")
 
-  //  Slave onstructor
+  //  Slave Constructor
   def this(name: String) {
     //  Delegate to the main constructor
     this(name, 0)
