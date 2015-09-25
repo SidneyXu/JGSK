@@ -1,10 +1,10 @@
 package com.bookislife.jgsk.scala._18_object
 
 /**
- * Created by mrseasons on 2015/2/13.
+ * Created by SidneyXu on 2015/09/25.
  */
 class Companion(private var balance: Int = 0) {
-  //access private method of companion object
+  //  Access private method of companion object
   val id = Companion.sequence()
 }
 
@@ -12,8 +12,8 @@ object Companion {
   private var num = 0
 
   def getInfo(account: Companion): String = {
-    //access private member of class
-    "balance is " + account.balance
+    //  Access private member of class
+    "Balance is " + account.balance
   }
 
   def apply(initBalance: Int) = {

@@ -1,16 +1,15 @@
 package com.bookislife.jgsk.scala._18_object
 
 /**
- * Created by mrseasons on 2015/2/13.
+ * Created by SidneyXu on 2015/09/25.
  */
-//app object
 object Hello extends App {
 
   println("Hello World")
 
   if (args.length > 0) {
-    println("args:" + args(0))
+    println("The passed arguments are " + args)
   } else {
-    println("no args")
+    println("There is no argument passed.")
   }
 }
