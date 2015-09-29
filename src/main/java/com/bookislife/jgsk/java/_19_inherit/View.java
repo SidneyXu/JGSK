@@ -7,4 +7,6 @@ public abstract class View {
 
     protected int width;
     protected int height;
+
+    public abstract String getDescription();
 }

@@ -18,7 +18,8 @@ public class Button extends View implements OnClickListener {
         System.out.println("Click Button " + text);
     }
 
-    public String getText() {
+    @Override
+    public String getDescription() {
         return text;
     }
 }

@@ -7,4 +7,6 @@ abstract class View {
 
     protected def width
     protected def height
+
+    abstract def getDescription()
 }

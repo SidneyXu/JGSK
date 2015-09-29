@@ -5,19 +5,12 @@ package com.bookislife.jgsk.scala._19_inherit
  */
 class Employee(name: String, salary: Int) extends Person(name) {
 
+  //  Override Rules
+  override val defValue1: String = "val Override def"
+  override val valValue: String = "val Override val"
 
-  //call method from super class
-  override def toString: String = super.toString + "[salary=" + salary + "]"
+  override def defValue2: String = "def Override def"
 
-  //access super protected fields
-  def desc = super.info
-
-  //override
-  override val idf2: String = "val Override def"
-  override val id: String = "val Override val"
-
-  override def idf: String = "def Override def"
-
-  //error
+  //  Wrong!!
   //  override var x: String = "var Override var"
 }

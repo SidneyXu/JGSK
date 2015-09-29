@@ -3,98 +3,77 @@ package com.bookislife.jgsk.kotlin._19_inherit
 /**
  * Created by SidneyXu on 2015/09/29.
  */
+fun main(args: Array<String>) {
+    val openButton = Button("Open", 100, 100)
+    println(openButton.getDescription())
+}
+
 //  By default, all classes are final classes
-//  parent has primary constructor
 open class Person(name: String) {
-    open fun idf() {
+    open fun foo() {
     }
 
-    open fun idf2() {
+    open fun bar() {
+    }
+
+    fun foo2() {
+
     }
 }
 
 class Employee(name: String) : Person(name) {
     constructor(name: String, age: Int) : this(name) {
-
     }
 
-    // override method is not final method
-    override fun idf() {
-        super.idf()
+    override fun foo() {
+        super.foo()
     }
 
-    final override fun idf2() {
-        super.idf2()
+    final override fun bar() {
+        super.bar()
     }
 
     override fun toString(): String {
         return super.toString() + javaClass.getName()
     }
+
 }
 
-//  parent has no primary constructor
-open class View {
-    constructor(size: Int)
+abstract class View(val width: Int, val height: Int) {
+    abstract fun getDescription(): String
 
     open fun onClick() {
-        println("click view")
+        println("Click event of View")
     }
 }
 
-//  interface is similar to java 8
-//  contains methods and abstract properties
-interface A {
+//  Interfaces are open by default
+interface OnClickListener {
+
+    //  Abstract properties
     val prop: Int
 
-    fun foo() {
+    fun onClick() {
+        println("Click event of OnClickListener")
     }
 
-    fun bar()
+    fun getDescription(): String
 }
 
-class B : A {
-    override fun bar() {
-        throw UnsupportedOperationException()
+class Button(val text: String, width: Int, height: Int) : View(width, height), OnClickListener {
+
+    override fun onClick() {
+        super<View>.onClick()
+        super<OnClickListener>.onClick()
     }
 
     override val prop: Int
-        get() = throw UnsupportedOperationException()
-}
+        get() = width * height
 
-interface OnClickListener {
-    //  interface are open by default
-    fun onClick() {
-        println("on click")
+
+    override fun getDescription(): String {
+        return text
     }
-}
 
-open class TextView : View, OnClickListener {
 
-    constructor(size: Int) : super(size)
-
-    // onClick must be overridden
-    override fun onClick() {
-        // angle brackets is used to denote the supertype from which the inherited implementation is taken
-        super<View>.onClick()   //  call to View.onClick()
-        super<OnClickListener>.onClick()
-    }
-}
-
-//  Abstract class
-abstract class Shape {
-    abstract fun onClick()
-}
-
-class Rectangle : Shape(), OnClickListener {
-    // not required to override onClick
-}
-
-//  override a non-abstract member with abstract one
-abstract class SuperTextView(size: Int) : TextView(size) {
-    abstract override fun onClick()
-}
-
-fun main(args: Array<String>) {
-    val rect = Rectangle()
-    rect.onClick()
 }

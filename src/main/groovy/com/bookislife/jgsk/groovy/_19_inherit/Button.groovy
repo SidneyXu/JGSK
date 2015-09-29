@@ -12,4 +12,8 @@ class Button extends View implements OnClickListener {
         println("Click Button $text")
     }
 
+    @Override
+    def getDescription() {
+        return text
+    }
 }

@@ -5,20 +5,21 @@ package com.bookislife.jgsk.scala._19_inherit
  */
 class Person(val name: String) {
 
-  //override not abstract method
+  //  Overrides Non-Abstract method
   override def toString = getClass.getName + "[name=" + name + "]"
 
-  //override
-  val id = "PersonVal"
-  var x = "PersonVar"
-  def idf = "PersonDef"
+  //  Override rules
+  val valValue = "PersonVal"
+  var varValue = "PersonVar"
 
-  def idf2 = "PersonDef2"
+  def defValue1 = "PersonDef"
 
-  //protected access
+  def defValue2 = "PersonDef2"
+
+  //  Protected Access
   protected def info = name
 
-  //protected + package access
+  //  Protected + Package access
   protected[_19_inherit] def info2 = name
 
 }
