@@ -29,7 +29,7 @@ class C extends B {
   class X {
     private val y = 2
 
-    def test(): Unit = {
+    def test(): Int = {
       val c = new C
       c.x
     }
