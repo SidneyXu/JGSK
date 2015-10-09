@@ -32,9 +32,8 @@ object App {
     var anyCo = new CovariantHolder[AnyRef]("b")
 
     //  Wrong!! Int is not a sub class of AnyRef
-    //    anyCo = intCo
+    //    anyCo = intCo`
     anyCo = strCo
-    println(anyCo.info) // a
 
     //   Contravarint
     var strDCo = new ContravarintHolder[String]("a")
@@ -44,7 +43,6 @@ object App {
     //  Wrong!! AnyRef is not a super class of Int
     //    intDCo = anyDCo
     strDCo = anyDCo
-    println(strDCo.info) // b
 
     //  Wildcard
     val capture = new Capture[String]("foo")
