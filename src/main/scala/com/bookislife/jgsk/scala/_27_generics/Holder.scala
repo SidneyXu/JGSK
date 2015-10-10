@@ -12,7 +12,7 @@ class CovariantHolder[+A](val a: A) {
   }
 }
 
-class ContravarintHolder[-A](val a: A) {
+class ContravarintHolder[-A]() {
   def foo(p: A): Unit = {
   }
 }

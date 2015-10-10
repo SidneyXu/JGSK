@@ -36,9 +36,9 @@ object App {
     anyCo = strCo
 
     //   Contravarint
-    var strDCo = new ContravarintHolder[String]("a")
-    var intDCo = new ContravarintHolder[Int](3)
-    var anyDCo = new ContravarintHolder[AnyRef]("b")
+    var strDCo = new ContravarintHolder[String]()
+    var intDCo = new ContravarintHolder[Int]()
+    var anyDCo = new ContravarintHolder[AnyRef]()
 
     //  Wrong!! AnyRef is not a super class of Int
     //    intDCo = anyDCo
