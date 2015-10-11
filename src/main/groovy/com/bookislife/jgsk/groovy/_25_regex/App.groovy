@@ -9,7 +9,7 @@ class App {
         def input = "99 bottles, 98 bottles"
 
         //  Pattern
-        def pattern = /[0-9]+\W/
+        def pattern = ~/[0-9]+\W/
 
         //  Matching
         //  with precompiled regex

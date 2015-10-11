@@ -37,5 +37,10 @@ public class App {
                 System.out.println(dateMatcher.group(i));   //  [2015-10, 2015, 10]
             }
         }
+
+
+        //  Replacing
+        String result = matcher.replaceFirst("xxx");
+        System.out.println(result);    //  xxxbottles, 98 bottles
     }
 }

@@ -6,7 +6,7 @@ package com.bookislife.jgsk.kotlin._25_regex
 fun main(args: Array<String>) {
     val input = "99 bottles, 98 bottles"
 
-    //  Pattern
+    //  Regex
     val pattern = """[0-9]+\W""".toRegex()
 
     //  Matching
@@ -15,11 +15,18 @@ fun main(args: Array<String>) {
     }
 
     //  Searching
-    for ( matchString in pattern.matchAll(input)) {
-        println("find all $matchString")
+    for ( matchResult in pattern.matchAll(input)) {
+        println("find all ${matchResult.value}")    //  99  98
     }
 
     //  group
+    """(\d{4})-(\d{2})""".toRegex().matchAll("2015-10").forEach {
+        println(it.groups.size())
+        for (rs in it.groups) {
+            println(rs?.value)  //  [2015-10, 2015, 10]
+        }
+    }
+
 
     //  Replacing
     val result = pattern.replaceFirst(input, "xxx")
