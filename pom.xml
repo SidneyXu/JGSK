@@ -16,6 +16,7 @@
         <groovy.version>2.4.4</groovy.version>
         <gmavenplus-plugin.version>1.5</gmavenplus-plugin.version>
         <scala.version>2.11.5</scala.version>
+        <scala-xml.version>1.0.5</scala-xml.version>
         <scala-maven-plugin.version>3.2.0</scala-maven-plugin.version>
         <kotlin.version>0.12.1230</kotlin.version>
     </properties>
@@ -59,6 +60,12 @@
             <groupId>org.scala-lang</groupId>
             <artifactId>scala-library</artifactId>
             <version>${scala.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.scala-lang.modules</groupId>
+            <artifactId>scala-xml_2.11</artifactId>
+            <version>${scala-xml.version}</version>
         </dependency>
 
         <dependency>

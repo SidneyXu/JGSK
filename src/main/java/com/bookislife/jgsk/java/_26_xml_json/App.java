@@ -3,10 +3,7 @@ package com.bookislife.jgsk.java._26_xml_json;
 import com.oracle.javafx.jmx.json.JSONDocument;
 import com.oracle.javafx.jmx.json.JSONReader;
 import com.oracle.javafx.jmx.json.impl.JSONStreamReaderImpl;
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.NodeList;
-import org.w3c.dom.Text;
+import org.w3c.dom.*;
 import org.xml.sax.SAXException;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -70,11 +67,21 @@ public class App {
 
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         try {
+            String defaultNamespaceUri = "http://myDefaultNamespace";
+            String otherNamespaceUri = "http://someOtherNamespace";
+
             DocumentBuilder builder = factory.newDocumentBuilder();
             Document doc = builder.newDocument();
 
+            //  XSL
+            ProcessingInstruction xmlSheet = doc.createProcessingInstruction("xml-sheet", "type='text/xsl' href='myfile.xslt'");
+            doc.appendChild(xmlSheet);
+
             Element langs = doc.createElement("langs");
             langs.setAttribute("type", "current");
+            //  Namespace
+            langs.setAttribute("xmlns:app", otherNamespaceUri);
+            langs.setAttribute("xmlns", defaultNamespaceUri);
             doc.appendChild(langs);
 
             Element language1 = doc.createElement("language");
@@ -86,6 +93,10 @@ public class App {
             Text text2 = doc.createTextNode("Groovy");
             language2.appendChild(text2);
             langs.appendChild(language2);
+
+            //  CDATA
+            CDATASection cdataSection = doc.createCDATASection("<!-- Support Android -->");
+            langs.appendChild(cdataSection);
 
             Element language3 = doc.createElement("language");
             Text text3 = doc.createTextNode("Scala");
@@ -109,18 +120,19 @@ public class App {
             transformer.transform(source, streamResult);
             String xmlString = writer.toString();
             System.out.println(xmlString);
-        } catch (ParserConfigurationException | TransformerException pce) {
-            pce.printStackTrace();
+        } catch (ParserConfigurationException | TransformerException e) {
+            e.printStackTrace();
         }
     }
 
     private static void parseXml() {
         System.out.println("========invoke parseXml()========");
 
-        String xml = "<langs type=\"current\">\n" +
-                "  <language>Java</language>\n" +
-                "  <language>Groovy</language>\n" +
-                "  <language>JavaScript</language>\n" +
+        String xml = "<langs type='current' count='4' mainstream='true'>\n" +
+                "  <language flavor='static' version='1.8.0_25'>Java</language>\n" +
+                "  <language flavor='dynamic' version='2.4.4'>Groovy</language>\n" +
+                "  <language flavor='static' version='2.11.5'>Scala</language>\n" +
+                "  <language flavor='static' version='0.12.613'>Kotlin</language>\n" +
                 "</langs>";
 
         byte[] xmlBytes = xml.getBytes();
@@ -131,18 +143,16 @@ public class App {
             DocumentBuilder db = dbf.newDocumentBuilder();
             Document doc = db.parse(is);
 
-            //print the "type" attribute
             Element langs = doc.getDocumentElement();
-            System.out.println("type = " + langs.getAttribute("type"));
+            System.out.println("count = " + langs.getAttribute("count"));   //  count=4
 
-            //print the "language" elements
             NodeList list = langs.getElementsByTagName("language");
             for (int i = 0; i < list.getLength(); i++) {
                 Element language = (Element) list.item(i);
                 System.out.println(language.getTextContent());
             }
-        } catch (ParserConfigurationException | SAXException | IOException pce) {
-            pce.printStackTrace();
+        } catch (ParserConfigurationException | SAXException | IOException e) {
+            e.printStackTrace();
         }
     }
 }
