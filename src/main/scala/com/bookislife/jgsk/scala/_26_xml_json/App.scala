@@ -97,8 +97,8 @@ object App {
     (langs \ "language" \ "title").foreach(n =>
       println(n.text)
     )
-    println(javaVersion)
-    println(javaTitle.text)
+    println(javaVersion)    //  1.8.0_25
+    println(javaTitle.text) //  Java
 
   }
 }
