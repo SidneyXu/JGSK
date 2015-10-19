@@ -17,17 +17,20 @@ class App {
         //  FileWriter
         file.append("hello world\n")
 
-        def fos = new FileOutputStream(file, true)
-        fos.write("hello groovy".getBytes())
-        fos.close()
-
-        def fis = new FileInputStream(file)
-        fis.eachLine { line ->
-            println(line)
-        }
-
         def content = file.text
         println(content)
-        file.text = "$content\n end writer"
+        file.text = "$content\nend writer"
+
+        new FileOutputStream(file, true).withStream {
+            it.write("hello groovy".getBytes())
+        }
+
+        new FileInputStream(file).withStream {
+            it.eachLine { line ->
+                println(line)
+            }
+        }
+
+
     }
 }

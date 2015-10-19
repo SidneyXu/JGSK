@@ -17,9 +17,14 @@ fun main(args: Array<String>) {
     }
     source.appendBytes("hello world".toByteArray())
 
-    val fos = source.outputStream();
+    var fos = source.outputStream();
     fos.write("hello kotlin".toByteArray())
     fos.close()
+
+    using {
+        fos = source.outputStream().autoClose()
+        fos.write("hello kotlin".toByteArray())
+    }
 
     val lines = source.readLines("UTF-8")
     for (l in lines) {
@@ -28,4 +33,27 @@ fun main(args: Array<String>) {
 
     val contents = source.readText("UTF-8")
     println(contents)
+
+}
+
+class ResourceHolder : AutoCloseable {
+    val resources = arrayListOf<AutoCloseable>()
+
+    fun <T : AutoCloseable> T.autoClose(): T {
+        resources.add(this)
+        return this
+    }
+
+    override fun close() {
+        resources.reverse().forEach { it.close() }
+    }
+}
+
+fun <R> using(block: ResourceHolder.() -> R): R {
+    val holder = ResourceHolder()
+    try {
+        return holder.block()
+    } finally {
+        holder.close()
+    }
 }

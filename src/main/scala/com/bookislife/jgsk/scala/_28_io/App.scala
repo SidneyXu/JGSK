@@ -9,31 +9,38 @@ import scala.io.Source
  */
 object App {
 
-    def main(args: Array[String]) {
-        val filepath = "files/test.txt"
+  def main(args: Array[String]) {
+    val filepath = "files/test.txt"
 
-        val file = new File(filepath)
-        if (!file.exists()) {
-            file.createNewFile()
-        } else {
-            file.delete()
-        }
-
-        val writer = new FileWriter(file)
-        writer.write("hello world")
-        writer.close()
-
-        var source = Source.fromFile(file)
-        val lineIterator = source.getLines()
-        for (l <- lineIterator) {
-            println(l)
-        }
-        source.close()
-
-        source = Source.fromFile(file, "UTF-8")
-        val contents = source.mkString
-        println(contents)
-        source.close()
+    val file = new File(filepath)
+    if (!file.exists()) {
+      file.createNewFile()
+    } else {
+      file.delete()
     }
+
+    var writer: FileWriter = null
+    try {
+      writer = new FileWriter(file)
+      writer.write("hello world")
+    } catch {
+      case e: Exception => e.printStackTrace()
+    } finally {
+      writer.close()
+    }
+
+    var source = Source.fromFile(file)
+        val lineIterator = source.getLines()
+    for (l <- lineIterator) {
+      println(l)
+    }
+    source.close()
+
+    source = Source.fromFile(file, "UTF-8")
+    val contents = source.mkString
+    println(contents)
+    source.close()
+
+  }
 
 }

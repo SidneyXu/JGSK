@@ -21,6 +21,22 @@ public class App {
             file.delete();
         }
 
+        FileOutputStream outputStream = null;
+        try {
+            outputStream = new FileOutputStream(file, true);
+            outputStream.write("hello java".getBytes());
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (null != outputStream) {
+                try {
+                    outputStream.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
         try (FileOutputStream fos = new FileOutputStream(file, true)) {
             fos.write("hello java".getBytes());
         } catch (IOException e) {
