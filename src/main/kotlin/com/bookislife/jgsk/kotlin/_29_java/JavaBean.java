@@ -1,7 +1,7 @@
 package com.bookislife.jgsk.kotlin._29_java;
 
 /**
- * Created by mrseasons on 2015/06/29.
+ * Created by SidneyXu on 2015/10/20.
  */
 public class JavaBean {
 
@@ -11,11 +11,11 @@ public class JavaBean {
         this.name = name;
     }
 
-    public void hello() {
-        System.out.println("hello,my name is " + name);
+    public int calc(int x, int y) {
+        return x + y;
     }
 
-    public boolean is(String name){
+    public boolean is(String name) {
         return this.name.equals(name);
     }
 
@@ -23,7 +23,7 @@ public class JavaBean {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public static void hello(JavaBean bean) {
+        System.out.println("Hello, this is " + bean.name);
     }
 }

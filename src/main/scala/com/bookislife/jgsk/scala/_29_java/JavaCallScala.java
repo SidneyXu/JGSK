@@ -1,18 +1,20 @@
 package com.bookislife.jgsk.scala._29_java;
 
 /**
- * Created by mrseasons on 2015/05/16.
+ * Created by SidneyXu on 2015/10/20.
  */
 public class JavaCallScala {
 
     public static void main(String[] args) {
         ScalaBean scalaBean = new ScalaBean("ScalaBean");
-        System.out.println(scalaBean.name());   //ScalaBean
-        System.out.println(scalaBean.getName());    //ScalaBean
-        System.out.println(scalaBean.say());    //hello scala
+        System.out.println(scalaBean.name());       //  ScalaBean
+        System.out.println(scalaBean.getName());    //  ScalaBean
+        System.out.println(scalaBean.age());        //  10
+        System.out.println(scalaBean.calc(2, 3));    //  5
 
-        ScalaExample.info(); //scala
-        ScalaExample example = ScalaExample.get("abc");
-        System.out.println(example.name()); //abc
+        ScalaBean.hello(scalaBean);                 //  Hello, this is ScalaBean
+        ScalaBean$.MODULE$.hello(scalaBean);        //  Hello, this is ScalaBean
+
+        ScalaUtils.foo();   //  Foo...
     }
 }

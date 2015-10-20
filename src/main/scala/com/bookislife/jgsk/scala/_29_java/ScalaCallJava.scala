@@ -1,12 +1,13 @@
 package com.bookislife.jgsk.scala._29_java
 
 /**
- * Created by mrseasons on 2015/05/16.
+ * Created by SidneyXu on 2015/10/20.
  */
 object ScalaCallJava extends App {
 
-  val bean = new JavaBean("JavaBean")
-  println(bean.getName)
-  println(bean.say())
+  val javaBean = new JavaBean("JavaBean")
+  println(javaBean.getName) //  JavaBean
+  println(javaBean.calc(2, 3)) //  5
 
+  JavaBean.hello(javaBean) //  Hello, this is JavaBean
 }

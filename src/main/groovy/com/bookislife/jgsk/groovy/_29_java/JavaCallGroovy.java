@@ -6,7 +6,9 @@ package com.bookislife.jgsk.groovy._29_java;
 public class JavaCallGroovy {
 
     public static void main(String[] args) {
-        GroovyBean groovyBean = new GroovyBean("Peter");
-        System.out.println(groovyBean.calc(2, 3));
+        GroovyBean groovyBean = new GroovyBean("GroovyBean");
+        System.out.println(groovyBean.getName());   //  GroovyBean
+        System.out.println(groovyBean.calc(2, 3));  //  5
+        GroovyBean.hello(groovyBean);               //  Hello, this is GroovyBean
     }
 }

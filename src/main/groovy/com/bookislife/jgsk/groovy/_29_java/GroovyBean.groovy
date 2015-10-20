@@ -15,4 +15,8 @@ class GroovyBean {
     def calc(x, y) {
         x + y
     }
+
+    static def hello(GroovyBean bean) {
+        println("Hello, this is ${bean.name}")
+    }
 }

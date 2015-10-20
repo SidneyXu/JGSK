@@ -18,4 +18,12 @@ public class JavaBean {
     public String getName() {
         return name;
     }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public static void hello(JavaBean bean) {
+        System.out.println("Hello, this is " + bean.name);
+    }
 }

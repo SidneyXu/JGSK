@@ -1,45 +1,38 @@
 package com.bookislife.jgsk.kotlin._29_java;
 
-import org.mrseasons.coffeetime.kotlin._23_java.KotlinBean;
-import org.mrseasons.coffeetime.kotlin._23_java.Obj;
-import org.mrseasons.coffeetime.kotlin._23_java._23_javaPackage;
-
 import java.io.IOException;
 
 /**
- * Created by mrseasons on 2015/06/29.
+ * Created by SidneyXu on 2015/10/20.
  */
 public class JavaCallKotlin {
 
     public static void main(String[] args) {
-        KotlinBean bean = new KotlinBean("Peter");
-        bean.hello();
+        //  Class
+        KotlinBean kotlinBean = new KotlinBean("Peter");
+        System.out.printf(kotlinBean.getName());    //  Peter
+        System.out.println(kotlinBean.calc(2, 3));  //  5
 
-        //For the root package (the one that’s called a “default package” in Java),
-        // a class named _DefaultPackage is created
-        _23_javaPackage.bar();
+        KotlinBean.hello(kotlinBean);               //  Hello, this is Peter
+        KotlinBean.Companion.echo("GoodBye", kotlinBean);   //  GoodBye, this is Peter
 
-        //foo is static, bar is not
-        KotlinBean.foo();
+        //  Object
+        KotlinUtils.foo();
+        KotlinUtils.INSTANCE$.bar();
 
-        Obj.foo();
+        //  For the root package, a class named _DefaultPackage is created
+        _29_javaPackage.foobar();
 
-        //Java overload
-        _23_javaPackage.f("str");
-        _23_javaPackage.f("str", 1);
-        _23_javaPackage.f("str", 1, "foo");
-
-        _23_javaPackage.f2("str", 1, "foo");
-
-        //check exception
+        //  Exception
+        //        _29_javaPackage.throwAnException();
         try {
-            _23_javaPackage.e();
-        } catch (IOException e) {
-            e.printStackTrace();
+            _29_javaPackage.declaredThrowAnException();
+        } catch (IOException ignored) {
         }
 
-        _23_javaPackage.e2();
-
-
+        //  Overload
+        _29_javaPackage.f("x");             //  a=x b=0 c=c
+        _29_javaPackage.f("x", 10);         //  a=x b=10 c=c
+        _29_javaPackage.f("x", 10, "z");    //  a=x b=10 c=z
     }
 }
