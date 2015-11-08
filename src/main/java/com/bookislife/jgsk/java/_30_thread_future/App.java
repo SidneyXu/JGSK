@@ -38,5 +38,20 @@ public class App {
         timer.schedule(task, 100, 100);
         Thread.sleep(1000);
         timer.cancel();
+
+        //  CompletableFuture
+        service = Executors.newFixedThreadPool(10);
+        CompletableFuture<Integer> firstFuture = new CompletableFuture<>();
+        firstFuture.complete(10);
+        int value = firstFuture.get();
+        System.out.println(value);
+
+        CompletableFuture<Integer> secondFuture = CompletableFuture.supplyAsync(() -> 20, service);
+        CompletableFuture<String> thirdFuture = secondFuture.thenApplyAsync(integer -> integer * 10 + "");
+        thirdFuture.thenAcceptAsync(System.out::println);
+        result = thirdFuture.get();
+        System.out.println(result);
+
+        service.shutdown();
     }
 }
