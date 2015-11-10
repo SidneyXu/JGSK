@@ -1,7 +1,10 @@
 package com.bookislife.jgsk.kotlin._30_thread_future
 
+import java.util.Random
 import java.util.concurrent.Callable
+import java.util.concurrent.CompletableFuture
 import java.util.concurrent.Executors
+import java.util.function.Supplier
 import kotlin.concurrent.fixedRateTimer
 import kotlin.concurrent.thread
 
@@ -16,7 +19,7 @@ fun main(args: Array<String>) {
     println("sync")
 
     //  Thread Pool
-    val service = Executors.newSingleThreadExecutor()
+    var service = Executors.newSingleThreadExecutor()
     service.execute {
         println("Running in a pool.")
     }
@@ -38,4 +41,16 @@ fun main(args: Array<String>) {
     }
     Thread.sleep(1000)
     fixedRateTimer.cancel()
+
+    //  CompletableFuture
+    val firstFuture = CompletableFuture<Int>()
+    firstFuture.complete(10)
+    println(firstFuture.get())
+
+    service = Executors.newFixedThreadPool(10)
+    val secondFuture = CompletableFuture.supplyAsync(Supplier {
+        Random().nextInt(1000)
+    }, service)
+    println(secondFuture.get())
+    service.shutdown()
 }

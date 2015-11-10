@@ -1,9 +1,9 @@
 package com.bookislife.jgsk.java._30_thread_future;
 
+import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.*;
-import java.util.function.Function;
 
 /**
  * Created by SidneyXu on 2015/11/06.
@@ -47,22 +47,47 @@ public class App {
         int value = firstFuture.get();
         System.out.println(value);  //  10
 
-        CompletableFuture<Integer> secondFuture = CompletableFuture.supplyAsync(() -> 20, service);
-        CompletableFuture<String> thirdFuture = secondFuture.thenApplyAsync(integer -> integer * 10 + "");
-        thirdFuture.thenAcceptAsync(System.out::println);   //  200
-        CompletableFuture<Void> exceptionFuture = thirdFuture.thenAcceptAsync(s -> {
-            if (Integer.valueOf(s) <= 200) {
+        //  Create an instance
+        CompletableFuture<Integer> secondFuture = CompletableFuture.supplyAsync(() -> {
+            //  long running
+            return new Random().nextInt(1000);
+        }, service);
+
+        //  Transforming and acting on one CompletableFuture
+        CompletableFuture<String> thirdFuture = secondFuture.thenApplyAsync(integer -> {
+            if (integer < 500) {
                 throw new IllegalArgumentException();
             }
+            return "" + integer;
         });
-        exceptionFuture.exceptionally(throwable -> {
-            if (throwable instanceof IllegalArgumentException) {
-                System.out.println("Result is too small.");
+
+        //  Running code on completion
+        CompletableFuture<Void> lastFuture = thirdFuture.thenAcceptAsync(s -> System.out.println("Result is " + s));
+
+        //  Error handling of single CompletableFuture
+        CompletableFuture<String> safe1 = thirdFuture.exceptionally(throwable -> {
+            //  throwable is CompletionException
+            if (throwable != null && (throwable.getCause() instanceof IllegalArgumentException)) {
+                return "Too small.";
+            } else if (throwable != null) {
+                return throwable.getMessage();
             }
             return null;
         });
-        result = thirdFuture.get();
-        System.out.println(result); //  200
+        CompletableFuture<String> safe2 = thirdFuture.handleAsync((s, throwable) -> {
+            //  throwable is CompletionException
+            if (throwable != null && (throwable.getCause() instanceof IllegalArgumentException)) {
+                return "Result is too small.";
+            } else if (throwable != null) {
+                return throwable.getMessage();
+            }
+            return s;
+        });
+
+        result = safe1.get();
+        System.out.println("Safe1 is " + result);
+        result = safe2.get();
+        System.out.println("Safe2 is " + result);
 
         service.shutdown();
     }
