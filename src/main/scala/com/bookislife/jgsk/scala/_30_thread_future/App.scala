@@ -18,14 +18,14 @@ object App {
 
   def main(args: Array[String]) {
     //    testExecutionContext()
-    //    simpleFuture
+    simpleFuture
     //    simplePromise
     //    futureAndPromise
-    test
+    //    test
     //    simpleSyncVar
     //        futureChain()
 
-    Thread.sleep(3000)
+    Thread.sleep(1000)
   }
 
   def testExecutionContext(): Unit = {
@@ -50,8 +50,8 @@ object App {
       case msg =>
         msg
     }
-    f1 onComplete {
-      case msg => println("onComplete")
+    f1 onFailure {
+      case e => e.printStackTrace()
     }
     f1 onComplete {
       case Success(msg) => println("Success")
@@ -62,11 +62,39 @@ object App {
 
     /*
       Output:
-      onComplete
-      (Hello future!,ForkJoinPool-1-worker-5)
+      Success
       Hello future!
      */
 
+    val f2 = Future {
+      Thread.sleep(10)
+    }
+    f2 onSuccess {
+      case i =>
+        println("a")
+    }
+    f2 onSuccess {
+      case i =>
+        println("b")
+    }
+    f2 onSuccess {
+      case i =>
+        println("c")
+    }
+
+    val f3=Future{
+      1
+    }
+    f3 onSuccess{
+      case i=> Future{
+        i+2
+      } onSuccess{
+        case i=>
+          i*10
+      }
+    }
+    val x = Await result(f1, Duration(3, TimeUnit.SECONDS))
+    println(x)
   }
 
   def simplePromise: Unit = {
@@ -127,48 +155,46 @@ object App {
       case s => println(s"Result is ${s.get}")
     }
 
-
+    //  Recover
     val tryDivideByZeroAgain = Future {
-      Thread.sleep(1000)
       1 / 0
     } recover {
       case e: ArithmeticException => "Infinity"
     }
 
     tryDivideByZeroAgain onSuccess {
-      case e => Console.println(e)
+      case result => println("Result is " + result)
     }
 
     tryDivideByZeroAgain onFailure {
-      case e => Console.println(e)
+      case e => e.printStackTrace()
     }
 
+    //  Fallback
     val f1 = Future {
-      Thread.sleep(500)
       1 / 0
     }
 
     val f2 = Future {
-      Thread.sleep(500)
       "Infinity"
     }
 
     f1 fallbackTo f2 onSuccess {
-      case v => Console.println(v)
+      case v => println(v)
     }
 
-    val whamBamThankYouMaam = Future {
-      Thread.sleep(500)
-      Console.println("Wham!")
+    val future = Future {
+      10 / 0
     } andThen {
-      case _ => {
-        Thread.sleep(500)
-        Console.println("Bam!")
-      }
+      case Success(x) =>
+        println(x)
+        x + 20
+
+      case Failure(e) =>
+        e.getCause.getMessage
     } andThen {
-      case _ => {
-        Thread.sleep(500)
-        Console.println("Thank you ma'am!")
+      case Success(x) => {
+        println(x)
       }
     }
   }
