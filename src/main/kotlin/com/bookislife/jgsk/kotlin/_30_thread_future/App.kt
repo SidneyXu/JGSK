@@ -3,10 +3,13 @@ package com.bookislife.jgsk.kotlin._30_thread_future
 import java.util.Random
 import java.util.concurrent.Callable
 import java.util.concurrent.CompletableFuture
+import java.util.concurrent.CountDownLatch
 import java.util.concurrent.Executors
+import java.util.concurrent.locks.ReentrantLock
 import java.util.function.Supplier
 import kotlin.concurrent.fixedRateTimer
 import kotlin.concurrent.thread
+import kotlin.concurrent.withLock
 
 /**
  * Created by SidneyXu on 2015/11/06.
@@ -53,4 +56,67 @@ fun main(args: Array<String>) {
     }, service)
     println(secondFuture.get())
     service.shutdown()
+
+    //  Synchronized
+    val sync = Sync()
+    sync.echo()
+    println()
+    sync.syncEcho()
+}
+
+class Sync {
+    private var num: Int = 0
+    private val lock = Object()
+
+    private val reetLock = ReentrantLock()
+
+
+    fun echo() {
+        val max = 10
+        val latch = CountDownLatch(max)
+        (1..max).forEach {
+            thread {
+                print('<')
+                Thread.sleep(10)
+                print('>')
+                latch.countDown()
+            }
+        }
+        latch.await()
+    }
+
+    fun syncEcho() {
+        val max = 10
+        val latch = CountDownLatch(max)
+        (1..max).forEach {
+            thread {
+                synchronized(lock) {
+                    print('<')
+                    Thread.sleep(10)
+                    print('>')
+                    latch.countDown()
+                }
+            }
+        }
+        latch.await()
+    }
+
+    //  jvm
+    //    synchronized fun block() {
+    //        println("Synchronized block")
+    //    }
+
+    fun lockEcho() {
+        val max = 10
+        (1..max).forEach {
+            thread {
+                reetLock.withLock {
+                    print('<')
+                    Thread.sleep(10)
+                    print('>')
+                }
+            }
+        }
+    }
+
 }

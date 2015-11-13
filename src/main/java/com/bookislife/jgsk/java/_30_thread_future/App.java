@@ -90,5 +90,67 @@ public class App {
         System.out.println("Safe2 is " + result);
 
         service.shutdown();
+
+        //  Synchronized
+        Sync sync = new Sync();
+        sync.echo();
+        System.out.println();
+        sync.syncEcho();
     }
+
+
+}
+
+class Sync {
+    public final Object lock = new Object();
+
+    public void echo() {
+        int max = 10;
+        CountDownLatch latch = new CountDownLatch(max);
+        for (int i = 0; i < max; i++) {
+            new Thread(() -> {
+                System.out.print("<");
+                try {
+                    Thread.sleep(10);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                System.out.print(">");
+                latch.countDown();
+            }).start();
+        }
+        try {
+            latch.await();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void syncEcho() {
+        int max = 10;
+        CountDownLatch latch = new CountDownLatch(max);
+        for (int i = 0; i < max; i++) {
+            new Thread(() -> {
+                synchronized (lock) {
+                    System.out.print("<");
+                    try {
+                        Thread.sleep(10);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    System.out.print(">");
+                }
+            }).start();
+        }
+        try {
+            latch.await();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public synchronized void block() {
+        System.out.println("Synchronized block");
+    }
+
 }

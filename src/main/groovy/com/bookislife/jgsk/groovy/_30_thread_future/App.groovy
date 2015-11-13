@@ -1,7 +1,10 @@
 package com.bookislife.jgsk.groovy._30_thread_future
 
+import groovy.transform.Synchronized
+
 import java.util.concurrent.Callable
 import java.util.concurrent.CompletableFuture
+import java.util.concurrent.CountDownLatch
 import java.util.concurrent.Executors
 
 /**
@@ -38,7 +41,7 @@ class App {
         def future = service.submit(callable)
         def result = future.get()
         println(result)
-        service.shutdown
+        service.shutdown()
 
         //  Timer
         def timer = new Timer("timer", true)
@@ -56,5 +59,63 @@ class App {
         def firstFuture = new CompletableFuture()
         firstFuture.complete(10)
         println(firstFuture.get())
+
+        //  Synchronized
+        def sync = new Sync()
+        sync.echo()
+        println()
+        sync.syncEcho()
     }
+
+
+}
+
+class Sync {
+    private final lock = new Object()
+
+    def echo() {
+        def max = 10
+        def latch = new CountDownLatch(max)
+        (1..max).each {
+            new Thread(new Runnable() {
+                @Override
+                void run() {
+                    print('<')
+                    Thread.sleep(10)
+                    print('>')
+                    latch.countDown()
+                }
+            }).start()
+        }
+        latch.await()
+    }
+
+    def syncEcho() {
+        def max = 10
+        def latch = new CountDownLatch(max)
+        (1..max).each {
+            new Thread(new Runnable() {
+
+                @Override
+                void run() {
+                    info()
+                    latch.countDown()
+                }
+            }).start()
+        }
+        latch.await()
+    }
+
+    @Synchronized("lock")
+    def info() {
+        print('<')
+        Thread.sleep(10)
+        print('>')
+    }
+
+    @Synchronized
+    def block() {
+
+    }
+
 }
