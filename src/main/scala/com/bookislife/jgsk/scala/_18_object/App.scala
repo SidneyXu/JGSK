@@ -17,7 +17,7 @@ object App {
   }
 
   def testCompanion(): Unit = {
-    def account = Companion(30)
+    val account = Companion(30)
     assert(1 == account.id)
     assert("Balance is 30" == Companion.getInfo(account))
   }
