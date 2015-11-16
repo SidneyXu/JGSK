@@ -1,7 +1,7 @@
-package com.bookislife.jgsk.scala._31_actor
+package com.bookislife.jgsk.scala._32_actor
 
 /**
- * Created by mrseasons on 2015/05/19.
+ * Created by SidneyXu on 2015/05/19.
  */
 import akka.actor.Actor
 
