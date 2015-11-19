@@ -2,7 +2,6 @@ package com.bookislife.jgsk.kotlin._26_xml_json
 
 import java.io.ByteArrayInputStream
 import javax.xml.parsers.DocumentBuilderFactory
-import kotlin.dom.toXmlString
 
 /**
  * Created by SidneyXu on 2015/10/13.

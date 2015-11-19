@@ -18,10 +18,11 @@ public class JavaCallKotlin {
 
         //  Object
         KotlinUtils.foo();
-        KotlinUtils.INSTANCE$.bar();
+        KotlinUtils.INSTANCE.bar();
 
         //  For the root package, a class named _DefaultPackage is created
         _29_javaPackage.foobar();
+
 
         //  Exception
         //        _29_javaPackage.throwAnException();
