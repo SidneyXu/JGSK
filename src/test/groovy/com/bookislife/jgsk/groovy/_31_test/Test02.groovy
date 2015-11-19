@@ -1,31 +1,34 @@
 package com.bookislife.jgsk.groovy._31_test
 
+import org.junit.After
+import org.junit.Before
+import org.junit.Test
 import org.mockito.Mockito
 
 /**
  * Created by SidneyXu on 2015/11/16.
  */
-class Test01 extends GroovyTestCase {
+class Test02 {
 
     private Calculator calculator
 
-    @Override
+    @Before
     protected void setUp() throws Exception {
-        super.setUp()
         calculator = new Calculator()
     }
 
-    @Override
+    @After
     protected void tearDown() throws Exception {
-        super.tearDown()
         println("End test...")
     }
 
+    @Test
     def testSum() {
         assert 3 == calculator.sum(1, 2)
         assert 3 != calculator.sum(2, 5)
     }
 
+    @Test
     def testMock() {
         Calculator calculator = Mockito.mock(Calculator.class)
         Mockito.when(calculator.sum(1, 2)).thenReturn(10)
@@ -33,6 +36,7 @@ class Test01 extends GroovyTestCase {
         assert 0 == calculator.sum(1, 20)
     }
 
+    @Test
     def void testStory() {
         Animal elephant = new Animal(type: "Elephant")
         Animal giraffa = new Animal(type: "Giraffa")
@@ -47,7 +51,7 @@ class Test01 extends GroovyTestCase {
 
         Animal animal = refrigerator.takeOut()
         assert refrigerator.isEmpty()
-        assertEquals(animal, elephant)
+        assert animal == elephant
     }
 
     private class Calculator {
