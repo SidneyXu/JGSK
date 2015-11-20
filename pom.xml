@@ -23,7 +23,7 @@
         <junit.version>4.12</junit.version>
         <mockito.version>1.10.19</mockito.version>
         <spek.version>0.1.180</spek.version>
-        <spec2.version>3.0-M2</spec2.version>
+        <spec2.version>3.6.5</spec2.version>
         <scalatest.version>2.2.2</scalatest.version>
     </properties>
 
@@ -147,32 +147,32 @@
                 <artifactId>maven-resources-plugin</artifactId>
                 <version>${maven-resources-plugin.version}</version>
             </plugin>
-            <plugin>
-                <groupId>org.codehaus.gmavenplus</groupId>
-                <artifactId>gmavenplus-plugin</artifactId>
-                <version>${gmavenplus-plugin.version}</version>
-                <executions>
-                    <execution>
-                        <phase>process-sources</phase>
-                        <goals>
-                            <goal>compile</goal>
-                            <goal>testCompile</goal>
-                        </goals>
-                        <configuration>
-                            <sources>
-                                <source>
-                                    <directory>src/main/groovy</directory>
-                                </source>
-                            </sources>
-                            <testSources>
-                                <source>
-                                    <directory>src/test/groovy</directory>
-                                </source>
-                            </testSources>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
+            <!--<plugin>-->
+                <!--<groupId>org.codehaus.gmavenplus</groupId>-->
+                <!--<artifactId>gmavenplus-plugin</artifactId>-->
+                <!--<version>${gmavenplus-plugin.version}</version>-->
+                <!--<executions>-->
+                    <!--<execution>-->
+                        <!--<phase>process-sources</phase>-->
+                        <!--<goals>-->
+                            <!--<goal>compile</goal>-->
+                            <!--<goal>testCompile</goal>-->
+                        <!--</goals>-->
+                        <!--<configuration>-->
+                            <!--<sources>-->
+                                <!--<source>-->
+                                    <!--<directory>src/main/groovy</directory>-->
+                                <!--</source>-->
+                            <!--</sources>-->
+                            <!--<testSources>-->
+                                <!--<source>-->
+                                    <!--<directory>src/test/groovy</directory>-->
+                                <!--</source>-->
+                            <!--</testSources>-->
+                        <!--</configuration>-->
+                    <!--</execution>-->
+                <!--</executions>-->
+            <!--</plugin>-->
             <plugin>
                 <groupId>net.alchim31.maven</groupId>
                 <artifactId>scala-maven-plugin</artifactId>

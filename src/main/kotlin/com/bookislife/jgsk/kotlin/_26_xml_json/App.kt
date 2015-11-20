@@ -19,7 +19,8 @@ fun main(args: Array<String>) {
 
     val builder = DocumentBuilderFactory.newInstance().newDocumentBuilder()
     val doc = builder.parse(ByteArrayInputStream(xml.toByteArray()))
-    println(doc.toXmlString())
+    //TODO
+//    println(doc.toXmlString())
 
     //  Parse Xml
     val langs = doc.getElementsByTagName("langs").item(0)
