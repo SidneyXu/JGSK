@@ -33,7 +33,7 @@ class Test01 extends GroovyTestCase {
         assert 0 == calculator.sum(1, 20)
     }
 
-    def void testStory() {
+    def testStory() {
         Animal elephant = new Animal(type: "Elephant")
         Animal giraffa = new Animal(type: "Giraffa")
         Refrigerator refrigerator = new Refrigerator()
@@ -50,13 +50,13 @@ class Test01 extends GroovyTestCase {
         assertEquals(animal, elephant)
     }
 
-    private class Calculator {
+    class Calculator {
         def sum(x, y) {
             x + y
         }
     }
 
-    private class Refrigerator {
+    class Refrigerator {
         private Animal animal
 
         def putInto(Animal animal) {
@@ -79,7 +79,7 @@ class Test01 extends GroovyTestCase {
         }
     }
 
-    private class Animal {
+    class Animal {
         public String type
     }
 }
