@@ -11,7 +11,7 @@ fun main(args: Array<String>) {
 
 private fun testFor() {
     val arr = intArrayOf(1, 2, 3)
-    for ( a in arr) {
+    for (a in arr) {
         println("Repeat For-Each $a");
     }
 
@@ -23,7 +23,7 @@ private fun testFor() {
 private fun testWhile() {
     val arr = intArrayOf(1, 2, 3)
     var i = 0
-    while ( i < arr.size()) {
+    while ( i < arr.size) {
         println("Repeat While ${arr[i++]}")
     }
     i = 0
@@ -49,6 +49,8 @@ private fun testRange() {
     for (a in 0..5 step 2)
         println("Repeat Range with Step $a")
     println("=====================")
+
+    for (i in 1..4 step 2) print(i)
 
 }
 

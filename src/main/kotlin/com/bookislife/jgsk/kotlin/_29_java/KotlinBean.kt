@@ -1,7 +1,6 @@
 package com.bookislife.jgsk.kotlin._29_java
 
 import java.io.IOException
-import kotlin.platform.platformStatic
 
 /**
  * Created by SidneyXu on 2015/10/20.
@@ -14,7 +13,7 @@ class KotlinBean(val name: String) {
     }
 
     companion object {
-        platformStatic fun hello(bean: KotlinBean) {
+        @JvmStatic fun hello(bean: KotlinBean) {
             println("Hello, this is ${bean.name}")
         }
 
@@ -25,7 +24,7 @@ class KotlinBean(val name: String) {
 }
 
 object KotlinUtils {
-    platformStatic fun foo() {
+    @JvmStatic fun foo() {
         println("Foo...")
     }
 
@@ -42,10 +41,10 @@ fun throwAnException() {
     throw IOException()
 }
 
-@throws(IOException::class) fun declaredThrowAnException() {
+@Throws(IOException::class) fun declaredThrowAnException() {
     throw IOException()
 }
 
-jvmOverloads fun f(a: String, b: Int = 0, c: String = "c") {
+@JvmOverloads fun f(a: String, b: Int = 0, c: String = "c") {
     println("a=$a b=$b c=$c")
 }

@@ -1,6 +1,6 @@
 package com.bookislife.jgsk.kotlin._15_class
 
-import java.util.Date
+import java.util.*
 
 /**
  * Created by SidneyXu on 2015/09/22.
@@ -18,14 +18,11 @@ class Person {
             }
         }
 
-    //  Backing field should start with "$"
-    //  Must be initialized first
-    //  if not using "$", backAge will call the getter and stack overflow may occurs
+    //  Backing field
     var backAge: Int = 0
-        get() = $backAge
         set(pAge) {
-            if (pAge > $backAge) {
-                $backAge = pAge
+            if (pAge > field) {
+                field = pAge
             }
         }
 

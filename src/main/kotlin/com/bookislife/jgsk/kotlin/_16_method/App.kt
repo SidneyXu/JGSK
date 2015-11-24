@@ -23,7 +23,7 @@ fun testMethod() {
 
 fun testClosure() {
     //  Define
-    {(x: Int) -> println("foo") }
+    //    {(x: Int) -> println("foo") }
 }
 
 fun say(name: String, word: String = "Hello") {

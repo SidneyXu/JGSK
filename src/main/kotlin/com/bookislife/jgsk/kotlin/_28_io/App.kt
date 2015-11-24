@@ -45,7 +45,7 @@ class ResourceHolder : AutoCloseable {
     }
 
     override fun close() {
-        resources.reverse().forEach { it.close() }
+        resources.reversed().forEach { it.close() }
     }
 }
 

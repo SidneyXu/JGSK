@@ -80,7 +80,7 @@ fun main(args: Array<String>) {
 
 class MyBean {
 
-    @throws(MyException::class, FileNotFoundException::class)
+    @Throws(MyException::class, FileNotFoundException::class)
     fun test() {
 
     }

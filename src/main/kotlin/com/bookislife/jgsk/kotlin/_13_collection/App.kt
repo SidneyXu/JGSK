@@ -15,7 +15,7 @@ fun testArray() {
     val arr2 = arrayOf(1, 2, 3)
 
     //  Length
-    println(arr.size())
+    println(arr.size)
 
     //  Modify Elements
     arr[0] = 10
@@ -48,17 +48,17 @@ fun testList() {
 
     //  Traversing a List
     val names = listOf("Mike", "Peter", "Jane", "Mary")
-    names filter {
+    names.filter {
         it.startsWith("M")
-    } sortBy {
+    }.sortedBy {
         it
-    }map {
+    }.map {
         it.toUpperCase()
-    }forEach { print("${it},") }
+    }.forEach { print("${it},") }
     println()   //  MARY,MIKE,
 
     //  Length
-    println(list.size())
+    println(list.size)
 
     //  Traverse
     for (lang in list) {
@@ -70,7 +70,7 @@ fun testRange() {
     val rng1 = 1..3
     println(rng1)   //  1..3
 
-    val rng2 = 1 rangeTo 3
+    val rng2 = 1.rangeTo(3)
     println(rng2)   //  1..3
 
     val rng3 = (1..5).step(2)

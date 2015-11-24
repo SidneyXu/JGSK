@@ -1,10 +1,10 @@
-package com.bookislife.jgsk.scala._31_actor
+package com.bookislife.jgsk.scala._32_actor
 
 import akka.actor.ActorSystem
 import com.typesafe.config.ConfigFactory
 
 /**
- * Created by mrseasons on 2015/05/20.
+ * Created by SidneyXu on 2015/05/20.
  */
 object Client extends App {
 

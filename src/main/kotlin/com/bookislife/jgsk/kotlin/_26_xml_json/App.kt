@@ -2,7 +2,6 @@ package com.bookislife.jgsk.kotlin._26_xml_json
 
 import java.io.ByteArrayInputStream
 import javax.xml.parsers.DocumentBuilderFactory
-import kotlin.dom.toXmlString
 
 /**
  * Created by SidneyXu on 2015/10/13.
@@ -20,7 +19,8 @@ fun main(args: Array<String>) {
 
     val builder = DocumentBuilderFactory.newInstance().newDocumentBuilder()
     val doc = builder.parse(ByteArrayInputStream(xml.toByteArray()))
-    println(doc.toXmlString())
+    //TODO
+//    println(doc.toXmlString())
 
     //  Parse Xml
     val langs = doc.getElementsByTagName("langs").item(0)
