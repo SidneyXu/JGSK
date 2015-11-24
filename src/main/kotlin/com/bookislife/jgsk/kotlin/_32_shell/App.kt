@@ -12,5 +12,7 @@ fun main(args: Array<String>) {
         return
     }
 
-    //TODO
+    process.inputStream.bufferedReader().lines().forEach {
+        println(it)
+    }
 }
