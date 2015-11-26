@@ -73,6 +73,12 @@
         </dependency>
 
         <dependency>
+            <groupId>org.scala-lang</groupId>
+            <artifactId>scala-reflect</artifactId>
+            <version>${scala.version}</version>
+        </dependency>
+
+        <dependency>
             <groupId>org.scala-lang.modules</groupId>
             <artifactId>scala-xml_2.11</artifactId>
             <version>${scala-xml.version}</version>
