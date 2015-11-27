@@ -35,10 +35,10 @@ object App {
     def sayHello(message: String) = println(s"hello $message")
   }
 
-  class Bean(val name: String) extends ClassfileAnnotation
-
-  class BeanField extends StaticAnnotation
-
-  class BeanMethod(val alias: String = "") extends StaticAnnotation
-
 }
+
+class Bean(val name: String) extends ClassfileAnnotation
+
+class BeanField extends StaticAnnotation
+
+class BeanMethod(val alias: String = "") extends StaticAnnotation

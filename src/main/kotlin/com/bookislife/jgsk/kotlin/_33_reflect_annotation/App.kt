@@ -1,4 +1,4 @@
-package com.bookislife.jgsk.kotlin._33_annotation
+package com.bookislife.jgsk.kotlin._33_reflect_annotation
 
 import kotlin.reflect.declaredMemberFunctions
 import kotlin.reflect.declaredMemberProperties
