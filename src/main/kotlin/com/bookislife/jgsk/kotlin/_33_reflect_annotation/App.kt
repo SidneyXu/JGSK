@@ -9,14 +9,31 @@ import kotlin.reflect.jvm.javaGetter
  * Created by SidneyXu on 2015/11/25.
  */
 fun main(args: Array<String>) {
-    //https://kotlinlang.org/docs/reference/reflection.html
-
-
     val person = Person()
     person.age = 20
 
     //  Class Reference
     val clazz = Person::class
+
+    //  Function Reference
+    val numbers = listOf(1, 2, 3)
+    //  (Int) -> Boolean
+    println(numbers.filter(::isOdd))
+
+    val sayHello = Person::sayHello
+    println(sayHello.invoke(person, "world"))
+
+    //  Property Reference
+    println(::x.get())
+    ::x.set(3)
+    println(x)
+
+    var name = Person::age
+    println(name.get(person))
+
+    //  Constructor References
+    factory(::Person)
+
     val bean = clazz.annotations.first {
         it.annotationType().typeName == Bean::class.qualifiedName
     } as Bean
@@ -40,25 +57,11 @@ fun main(args: Array<String>) {
         println("alias is ${beanMethod.alias}") //  hello
     }
 
-    //  Function Reference
-    val numbers = listOf(1, 2, 3)
-    //  (Int) -> Boolean
-    println(numbers.filter(::isOdd))
-
-    //  Property Reference
-    println(::x.get())
-    ::x.set(3)
-    println(x)
-
-    var name = Person::age
-    println(name.get(person))
 
     //  With Java Reflection
     println(Person::age.javaGetter)
     println(Person::age.javaField)
 
-    //  Constructor References
-    factory(::Person)
 }
 
 var x = 2
