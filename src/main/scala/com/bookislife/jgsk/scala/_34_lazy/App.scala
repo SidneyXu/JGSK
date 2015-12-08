@@ -14,13 +14,6 @@ object App {
 
     println(s"Hello 1, ${a.lazyField}")
     println(s"Hello 2, ${a.lazyField}")
-
-    val stream = (1 to 100000000).toStream
-    println(stream.head)
-    println(stream.tail)
-
-    val rang=1 to 100000000
-    println(rang)
   }
 }
 
