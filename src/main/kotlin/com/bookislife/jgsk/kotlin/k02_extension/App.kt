@@ -36,8 +36,8 @@ class Num(var x: Int) {
     }
 }
 
-fun Num.add(x: Int, y: Int) {
-    this.x += x + y
+fun Num.add(a: Int, b: Int) {
+    this.x += a + b
 }
 
 fun Num.foo() {
