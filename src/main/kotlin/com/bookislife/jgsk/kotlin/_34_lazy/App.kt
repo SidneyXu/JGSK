@@ -13,7 +13,22 @@ fun main(args: Array<String>) {
 }
 
 class A {
+    var i: Long = 0
+
+    //  Default lazy mode is SYNCHRONIZED
     val fooField: Long by lazy {
+        println("Compute...")
+        Thread.sleep(3000)
+        System.currentTimeMillis()
+    }
+
+    val fooField2: Long by lazy(LazyThreadSafetyMode.PUBLICATION) {
+        println("Compute...")
+        Thread.sleep(3000)
+        System.currentTimeMillis()
+    }
+
+    val fooField3: Long by lazy(LazyThreadSafetyMode.NONE) {
         println("Compute...")
         Thread.sleep(3000)
         System.currentTimeMillis()
