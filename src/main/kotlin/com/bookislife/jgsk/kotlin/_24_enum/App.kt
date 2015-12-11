@@ -13,7 +13,7 @@ fun main(args: Array<String>) {
     println(WeekDay.Tuesday.isWorkingDay())
 
     //  Query Ordinal
-    println(monday.ordinal())
+    println(monday.ordinal)
 
     //  Define with the Ordinal
     println(WeekDay.values()[0])

@@ -16,11 +16,11 @@ fun main(args: Array<String>) {
 }
 
 class Person(val name: String, val age: Int) {
-    fun component1(): String {
+    operator fun component1(): String {
         return name
     }
 
-    fun component2(): Int {
+    operator fun component2(): Int {
         return age
     }
 }
