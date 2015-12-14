@@ -1,6 +1,6 @@
 package com.bookislife.jgsk.kotlin._08_grammar
 
-import java.util.Date
+import java.util.*
 
 /**
  * Created by SidneyXu on 2015/09/17.
@@ -25,7 +25,7 @@ fun main(args: Array<String>) {
 
     println("x==y: " + (x == y)) //  true
     println("x.equals(y): " + x.equals(y)) //  true
-    println("x.identityEquals(y): " + x.identityEquals(y)) //  false
+    println("x===y: " + (x === y)) //  false
 }
 
 fun add(x: Int, y: Int): Int {

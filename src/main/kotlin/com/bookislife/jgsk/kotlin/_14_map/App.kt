@@ -43,10 +43,11 @@ fun testMap() {
     println(mutableMap)
 
     //  Length
-    println(mutableMap.size())
+    println(mutableMap.size)
 
     //  Traverse
     for ((k, v) in mutableMap) {
         println("Traverse $k is $v")
     }
+
 }

@@ -1,8 +1,5 @@
 package com.bookislife.jgsk.kotlin._15_class
 
-import com.bookislife.jgsk.kotlin._15_class.Man
-import com.bookislife.jgsk.kotlin._15_class.Woman
-
 /**
  * Created by SidneyXu on 2015/09/022.
  */

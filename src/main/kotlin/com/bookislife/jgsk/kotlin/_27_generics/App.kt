@@ -18,19 +18,19 @@ fun main(args: Array<String>) {
     println(str.javaClass)
 
     //  Covariant
-    var strHolder = Holder<String>("a")
+    var strHolder = Holder("a")
     var anyHolder = Holder<Any>("b")
     //  Wrong!!
     //    anyHolder = strHolder
 
-    var strCo: CovariantHolder<String> = CovariantHolder<String>("a")
+    var strCo: CovariantHolder<String> = CovariantHolder("a")
     var anyCo: CovariantHolder<Any> = CovariantHolder<Any>("b")
     //  Wrong!!
     //    strCo = anyCo
     anyCo = strCo
 
     //   Contravarint
-    var strDCo = ContravarintHolder<String>("a")
+    var strDCo = ContravarintHolder("a")
     var anyDCo = ContravarintHolder<Any>("b")
     //  Wrong!!
     //    anyCo = strDCo
@@ -38,7 +38,7 @@ fun main(args: Array<String>) {
 
 
     //  Wildcard
-    val capture = Capture<String>("foo")
+    val capture = Capture("foo")
     //  Wrong!!
     //    foo(capture)
     foo2(capture)

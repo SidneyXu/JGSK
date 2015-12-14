@@ -17,8 +17,12 @@ public class App {
     public static void main(String[] args) {
         testMethod();
         testLambda();
-    }
 
+        //  Closure
+        Excite excite = excite("hello");
+        System.out.println(excite.accept("world")); //  from=world,hello
+    }
+    
     private static void testMethod() {
         //  Static Method
         say("Peter", "Goodbye");
@@ -120,32 +124,14 @@ public class App {
         return integerFunction.apply(arr);
     }
 
+    private static Excite excite(String s) {
+        Excite e = from -> {
+            from = "from=" + from;
+            return from + "," + s;
+        };
+        return e;
+    }
 
-    //    /*
-    //        没有参数,返回单一结果
-    //     */
-    //    public void testSupplier() {
-    //        Supplier<Person> personSupplier = Person::new;
-    //        personSupplier.get();   // new Person
-    //    }
-    //
-    //    /*
-    //        在传入的参数上进行某种操作
-    //     */
-    //    public void testConsumer() {
-    //        Consumer<Person> greeter = (p) -> System.out.println("Hello, " + p.firstName);
-    //        greeter.accept(new Person("Luke", "Skywalker"));
-    //    }
-    //
-    //    public void testComparator() {
-    //        Comparator<Person> comparator = (p1, p2) -> p1.firstName.compareTo(p2.firstName);
-    //
-    //        Person p1 = new Person("John", "Doe");
-    //        Person p2 = new Person("Alice", "Wonderland");
-    //
-    //        comparator.compare(p1, p2);             // > 0
-    //        comparator.reversed().compare(p1, p2);  // < 0
-    //    }
 }
 
 class Calculator {

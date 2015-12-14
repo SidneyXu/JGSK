@@ -34,7 +34,7 @@ class Employee(name: String) : Person(name) {
     }
 
     override fun toString(): String {
-        return super.toString() + javaClass.getName()
+        return super.toString() + javaClass.name
     }
 
 }
