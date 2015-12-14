@@ -30,16 +30,25 @@ object App {
     //  Define
     { () => println("foo") }
 
+    ((x: Int, y: Int) => {
+      println(s"$x plus $y is ${x + y}")
+    })(1, 3)
+
     //  Closure as an Object
-    def excite = (word: String) =>
+    val excite = (word: String) =>
       s"$word!!"
 
     //  Calling a closure
     println(excite("Java"))
+    println(excite.apply("Scala"))
 
     //  Parameters
-    def plus =  (x: Int, y: Int) =>
+    val plus = (x: Int, y: Int) =>
       println(s"$x plus $y is ${x + y}")
+
+    //  Implicit Parameter
+    val greeting = "Hello,  " + _
+    println(greeting("Peter"))
 
     //  Varargs
     //  Wrong!! Not supported
@@ -56,6 +65,7 @@ object App {
       numbers.max
     }
     println(maxValue)
+
   }
 
   def say(name: String, word: String = "Hello"): Unit = {

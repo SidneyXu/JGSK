@@ -30,7 +30,8 @@ class App {
 
         { int x, int y ->
             println "$x plus $y is ${x + y}"
-        }
+        }(1, 3)
+
         //  Ambiguous
         //        { println("foo") }
 
@@ -50,7 +51,7 @@ class App {
 
         // Implicit Parameter
         def greeting = { "Hello, $it!" }
-        greeting("Peter")
+        println(greeting("Peter"))
 
         //  Varargs
         def contact = { String... args -> args.join(',') }
