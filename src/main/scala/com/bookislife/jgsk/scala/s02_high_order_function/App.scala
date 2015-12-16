@@ -35,6 +35,29 @@ object App {
     val prefixApply = show("(", _: String, _: String)
     val prefixPostFixApply = prefixApply(_: String, ")")
     println(prefixPostFixApply("foobar")) //  (foobar)
+
+    //  PartialFunction
+    val isEven: PartialFunction[Int, String] = {
+      case x if x != 0 && x % 2 == 0 => x + " is even"
+    }
+    println(isEven(20))
+
+    val numbers = 1 to 10
+    val evenNumbers = numbers.collect(isEven)
+    evenNumbers.foreach(println)
+
+    println(isEven.isDefinedAt(4))
+    println(isEven.isDefinedAt(3))
+
+    val isOdd: PartialFunction[Int, String] = {
+      case x if x % 2 != 0 => x + " is odd"
+    }
+    val other: PartialFunction[Int, String] = {
+      case _ => "else"
+    }
+    val partial = isEven orElse isOdd orElse other
+    println(partial(3))
+    println(partial(0))
   }
 
   def multiple(x: Int, y: Int): Int = x * y
