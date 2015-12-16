@@ -5,45 +5,46 @@ package com.bookislife.jgsk.scala.s02_high_order_function
   */
 object App {
 
-  def main(args: Array[String]) {
-    //  Function Literal Syntax
-    //  Type Inference
-    val sum = (x: Int, y: Int) => x + y
+    def main(args: Array[String]) {
+        //  Function Literal Syntax
+        //  Parameters Type Inference
+        val sum = (x: Int, y: Int) => x + y
 
-    val sum2: (Int, Int) => Int = (x, y) => x + y
+        val sum2: (Int, Int) => Int = (x, y) => x + y
 
-    val multi = multiple _
-    println(multi(3, 4)) //  12
+        val multi = multiple _
+        println(multi(3, 4)) //  12
 
-    //  High Order Function
-    //  Functions as Parameters
-    add10({ i => i + 2 })
-    val x = add10(_ + 2)
 
-    //  Curry
-    val scale20 = scale(0.2)
-    println(scale20(5)) //  1.0
-    println(scale(0.3)(5)) //  1.5
-    println(scale2(0.3)(5)) //  1.5
+        //  High Order Function
+        //  Functions as Parameters
+        add10({ i => i + 2 })
+        println(add10(_ + 2))
 
-    val echo = show _
-    println(echo("{", "echo", "}"))
-    val echoCurr = (show _).curried
-    echoCurr("{")("echoCurr")("}")
+        //  Curry
+        println(minus(5, 3))
+        println(minus2(5)(3))
 
-    //  Partial Application
-    val prefixApply = show("(", _: String, _: String)
-    val prefixPostFixApply = prefixApply(_: String, ")")
-    println(prefixPostFixApply("foobar")) //  (foobar)
-  }
+        val minusCurr = (minus _).curried
+        println(minusCurr(5)(3))
 
-  def multiple(x: Int, y: Int): Int = x * y
+        //  Partial Application
+        val applyPrefix = show("(", _: String, _: String)
+        println(applyPrefix("foo", ")")) //  (foo)
 
-  def add10(f: (Int) => Int) = f(10)
+        val applyPostfix = show(_: String, _: String, ")")
+        println(applyPostfix("(", "bar")) //  (bar)
+    }
 
-  def scale(factor: Double) = (x: Double) => x * factor
+    def multiple(x: Int, y: Int): Int = x * y
 
-  def scale2(factor: Double)(x: Double) = x * factor
+    def add10(f: (Int) => Int) = f(10)
 
-  def show(prefix: String, msg: String, postfix: String) = prefix + msg + postfix
+    def scale(factor: Double) = (x: Double) => x * factor
+
+    def minus(x: Int, y: Int) = x - y
+
+    def minus2(x: Int)(y: Int) = x - y
+
+    def show(prefix: String, msg: String, postfix: String) = prefix + msg + postfix
 }
