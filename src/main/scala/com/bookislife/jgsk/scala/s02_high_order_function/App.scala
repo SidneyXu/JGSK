@@ -34,6 +34,29 @@ object App {
 
         val applyPostfix = show(_: String, _: String, ")")
         println(applyPostfix("(", "bar")) //  (bar)
+
+        //  PartialFunction
+        val isEven: PartialFunction[Int, String] = {
+            case x if x != 0 && x % 2 == 0 => x + " is even"
+        }
+        println(isEven(20))
+
+        println(isEven.isDefinedAt(4))  //  true
+        println(isEven.isDefinedAt(3))  //  false
+
+        val isOdd: PartialFunction[Int, String] = {
+            case x if x % 2 != 0 => x + " is odd"
+        }
+        val other: PartialFunction[Int, String] = {
+            case _ => "else"
+        }
+        val partial = isEven orElse isOdd orElse other
+        println(partial(3)) //  3 is odd
+        println(partial(0)) //  else
+
+        val numbers = 1 to 10
+        val evenNumbers = numbers.collect(isEven)
+        evenNumbers.foreach(println)
     }
 
     def multiple(x: Int, y: Int): Int = x * y
