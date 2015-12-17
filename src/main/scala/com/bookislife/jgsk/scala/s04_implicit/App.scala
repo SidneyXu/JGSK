@@ -20,7 +20,7 @@ object App {
         show("Bye")("Good") //  Good Bye
 
         //  Implicit Class
-        println(3.add(5))
+        println(3.add(5))   //  8
 
         //  Type Constraint
         import Constraint._
