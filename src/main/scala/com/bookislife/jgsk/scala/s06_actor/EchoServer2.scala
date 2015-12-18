@@ -1,4 +1,4 @@
-package com.bookislife.jgsk.scala._32_actor
+package com.bookislife.jgsk.scala.s06_actor
 
 /**
  * Created by SidneyXu on 2015/05/19.

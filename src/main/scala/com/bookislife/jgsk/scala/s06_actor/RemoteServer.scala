@@ -1,4 +1,4 @@
-package com.bookislife.jgsk.scala._32_actor
+package com.bookislife.jgsk.scala.s06_actor
 
 import akka.actor.{ActorSystem, Props}
 
