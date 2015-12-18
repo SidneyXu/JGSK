@@ -7,12 +7,17 @@ import java.util.concurrent.locks.Lock
  */
 fun main(args: Array<String>) {
     //  Function Literal Syntax
+    //  Type Inference
     val sum = { x: Int, y: Int -> x + y }
-    val sum2: (Int, Int) -> Int = { x, y -> x + y }
 
+    val sum2: (Int, Int) -> Int = { x, y -> x + y }
+    val triple: (Int) -> Int = { x -> 3 * x }
+
+    //  High Order Function
     //  Functions as Parameters
-    val x = add({ Int -> 2 })
-    println(x) //   2
+    add10({ it + 2 })
+    val x = add10 { it + 2 }
+    println(x) //   12
 
     //  Closure
     var sum3 = 0
@@ -22,23 +27,20 @@ fun main(args: Array<String>) {
     }
     println(sum3) //  6
 
+    //  Curry
+    val scale20 = scale(0.2)
+    println(scale20(5.0))
+    println(scale(0.3)(5.0))
+
     //  Extension Function Expressions
     val sum4 = fun Int.(other: Int): Int = this + other
     println(1.sum4(2))  //  3
     1.sum4(2)
 }
 
-fun add(f: (Int) -> Int) = f(10)
+fun add10(f: (Int) -> Int) = f(10)
 
-//  Functions as Parameters
-fun <T> lock(lock: Lock, body: () -> T): T {
-    lock.lock()
-    try {
-        return body()
-    } finally {
-        lock.unlock()
-    }
-}
+fun scale(factor: Double) = { x: Double -> x * factor }
 
 //  Function Types
 fun <T> max(collection: Collection<T>, less: (T, T) -> Boolean): T? {

@@ -25,6 +25,7 @@
         <spek.version>0.1.180</spek.version>
         <spec2.version>3.6.5</spec2.version>
         <scalatest.version>2.2.2</scalatest.version>
+        <json4s-jackson>3.2.10</json4s-jackson>
     </properties>
 
     <repositories>

@@ -23,17 +23,51 @@ fun testMethod() {
 
 fun testClosure() {
     //  Define
-    //    {(x: Int) -> println("foo") }
+    { -> println("foo") }
+
+    { x: Int, y: Int ->
+        println("$x plus $y is ${x + y}")
+    }(1, 3)
+
+    //  Closure as an Object
+    val excite = { word: String ->
+        "$word!!"
+    }
+
+    //  Calling a closure
+    println(excite("Java"))
+    println(excite.invoke("Kotlin"))
+
+    //  Parameters
+    val plus = { x: Int, y: Int ->
+        println("$x plus $y is ${x + y}")
+    }
+
+    //  Implicit Parameter
+    val ints = arrayOf(1, 2, 3)
+    ints.filter {
+        it > 3
+    }
+
+    //  Closure as Parameter
+    val maxValue = max(arrayOf(3, 10, 2, 1, 40)) {
+        it.max()!!
+    }
+    println(maxValue)
 }
 
 fun say(name: String, word: String = "Hello") {
     println("$word $name")
 }
 
+fun max(numbers: Array<Int>, s: (Array<Int>) -> Int): Int {
+    return s.invoke(numbers)
+}
+
 class Calculator {
-    fun add(x: Int, y: Int): Int {
-        return x + y
-    }
+        fun add(x: Int, y: Int): Int {
+            return x + y
+        }
 
     fun sum(vararg n: Int) {
         println(n.sum())
