@@ -1,6 +1,6 @@
 package com.bookislife.jgsk.kotlin._30_thread_future
 
-import java.util.Random
+import java.util.*
 import java.util.concurrent.Callable
 import java.util.concurrent.CompletableFuture
 import java.util.concurrent.CountDownLatch
@@ -16,10 +16,15 @@ import kotlin.concurrent.withLock
  */
 fun main(args: Array<String>) {
     //  Simple Thread
-    thread() {
+    thread {
         println("async")
     }
     println("sync")
+    thread(start = false,
+            daemon = true,
+            name = "t1") {
+        println("running")
+    }.start()
 
     //  Thread Pool
     var service = Executors.newSingleThreadExecutor()

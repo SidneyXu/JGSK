@@ -36,6 +36,12 @@ fun main(args: Array<String>) {
     val sum4 = fun Int.(other: Int): Int = this + other
     println(1.sum4(2))  //  3
     1.sum4(2)
+
+    //  Function Literals with Receiver
+    val a=accept{x->
+        x+10
+    }
+    println(a)
 }
 
 fun add10(f: (Int) -> Int) = f(10)
@@ -60,4 +66,10 @@ inline fun <T> inlineLock(lock: Lock, body: () -> T,
     } finally {
         lock.unlock()
     }
+}
+
+//  Function Literals with Receiver
+fun accept(dec: Int.(other: Int) -> Int): Int {
+    val i = 100
+    return i.dec(10)
 }
