@@ -8,36 +8,33 @@ import groovy.transform.Memoized
 class App {
 
     public static void main(String[] args) {
+        //  Closure
         def closure1 = { Integer x ->
             println "Closure argument $x"
             x
         }.memoize()
-        println(closure1(3))
-        println(closure1(3))
-        println(closure1(4))
-        println(closure1(4))
+        closure1(3)
+        closure1(3)
+        closure1(3)
+        closure1(4)
+        closure1(4)
+        closure1(4)
 
-        long start = System.currentTimeMillis()
+        //  Method
         fibonacci(5)
-        println("fibonacci one cost ${System.currentTimeMillis() - start}")
+        println("---end 5---")
+        fibonacci(4)
+        println("---end 4---")
 
-        start = System.currentTimeMillis()
-        fibonacci(5)
-        println("fibonacci two cost ${System.currentTimeMillis() - start}")
-
-        start = System.currentTimeMillis()
         memoFibonacci(5)
-        println("memoFibonacci one cost ${System.currentTimeMillis() - start}")
-
-        start = System.currentTimeMillis()
-        memoFibonacci(5)
-        println("memoFibonacci two cost ${System.currentTimeMillis() - start}")
-
-
+        println("---end 5---")
         memoFibonacci(4)
-        memoFibonacci(4)
-        memoFibonacci(4)
-        memoFibonacci(3)
+        println("---end 4---")
+
+        memoFibonacci2(5)
+        println("---end 5---")
+        memoFibonacci2(5)
+        println("---end 4---")
 
     }
 
@@ -49,14 +46,14 @@ class App {
 
     @Memoized
     static def memoFibonacci(int n) {
-        println("fibonacci for $n")
+        println("memoFibonacci for $n")
         if (n == 0 || n == 1) return n
         return memoFibonacci(n - 1) + memoFibonacci(n - 2)
     }
 
     @Memoized(maxCacheSize = 3)
     static def memoFibonacci2(int n) {
-        println("fibonacci for $n")
+        println("memoFibonacci for $n")
         if (n == 0 || n == 1) return n
         return memoFibonacci2(n - 1) + memoFibonacci2(n - 2)
     }
