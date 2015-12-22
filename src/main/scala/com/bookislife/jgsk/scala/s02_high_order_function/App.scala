@@ -1,8 +1,8 @@
 package com.bookislife.jgsk.scala.s02_high_order_function
 
 /**
- * Created by SidneyXu on 2015/12/15.
- */
+  * Created by SidneyXu on 2015/12/15.
+  */
 object App {
 
   def main(args: Array[String]) {
@@ -11,6 +11,10 @@ object App {
     val sum = (x: Int, y: Int) => x + y
 
     val sum2: (Int, Int) => Int = (x, y) => x + y
+
+    val sum3: Function2[Int, Int, Int] = new Function2[Int, Int, Int] {
+      override def apply(x: Int, y: Int): Int = x + y
+    }
 
     val multi = multiple _
     println(multi(3, 4)) //  12

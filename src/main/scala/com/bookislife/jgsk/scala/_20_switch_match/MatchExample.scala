@@ -1,8 +1,8 @@
 package com.bookislife.jgsk.scala._20_switch_match
 
 /**
- * Created by mrseasons on 2015/05/06.
- */
+  * Created by mrseasons on 2015/05/06.
+  */
 object MatchExample {
 
   def matchValue: Unit = {
@@ -55,17 +55,5 @@ object MatchExample {
       println("finish")
     }
   }
-
-//  def matchCaseClass: Unit = {
-//    def eval(e: Expr): Int = e match {
-//      case Number(n) => n
-//      case Sum(l, r) => eval(l) + eval(r)
-//      case x => x.eval * 10
-//    }
-//    println(eval(Sum(Number(1), Number(2)))) //3
-//    println(eval(new Expr {
-//      override def eval: Int = 20
-//    })) //200
-//  }
 
 }

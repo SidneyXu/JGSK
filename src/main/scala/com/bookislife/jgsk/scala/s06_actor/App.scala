@@ -9,8 +9,8 @@ import akka.pattern.ask
 import scala.util.Random
 
 /**
- * Created by SidneyXu on 2015/11/06.
- */
+  * Created by SidneyXu on 2015/11/06.
+  */
 object App {
 
   def main(args: Array[String]) {
@@ -59,16 +59,16 @@ object App {
   }
 
   def testActorAndThread(): Unit = {
-    implicit val system = ActorSystem()
+    val system = ActorSystem()
 
-    //    implicit val executionContext = system.dispatchers.lookup("my-dispatcher")
+    implicit val executionContext = system.dispatchers.lookup("my-dispatcher")
 
     //  Specify a dispatcher to an actor
     val echoServers = (1 to 10).map(x =>
       system.actorOf(Props(new EchoServer2(x.toString))
         .withDispatcher("my-dispatcher")))
-    (1 to 10).foreach(msg =>
-      echoServers(Random.nextInt(10)) ! msg.toString)
+
+    (1 to 10).foreach(echoServers(Random.nextInt(10)) ! _)
 
     system.shutdown()
 
