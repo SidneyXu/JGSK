@@ -5,6 +5,7 @@ import java.util.concurrent.TimeUnit
 import akka.actor.ActorDSL._
 import akka.actor.{ActorSystem, Props}
 import akka.pattern.ask
+import scala.io.Source
 
 import scala.util.Random
 
@@ -17,7 +18,8 @@ object App {
     //    testEchoServer()
     //    testEchoServerUsingDSL()
     //    testActorAndThread()
-    testBlockOperation()
+    //    testSynchronousOperation()
+    testAsynchronousOperation()
   }
 
   def testEchoServer(): Unit = {
@@ -87,7 +89,7 @@ object App {
     */
   }
 
-  def testBlockOperation(): Unit = {
+  def testSynchronousOperation(): Unit = {
     implicit val ec = scala.concurrent.ExecutionContext.Implicits.global
     implicit val system = akka.actor.ActorSystem()
 
@@ -95,19 +97,17 @@ object App {
 
     val fromURL = actor(new Act {
       become {
-
-        case url: String => sender ! scala.io.Source.fromURL(url)
+        case url: String => sender ! Source.fromURL(url)
           .getLines().mkString("\n")
       }
     })
-
     val version = fromURL.ask(versionUrl)(akka.util.Timeout(5, TimeUnit.SECONDS))
     version.foreach(println)
 
     system.shutdown()
   }
 
-  def testConcurrentOperation(): Unit = {
+  def testAsynchronousOperation(): Unit = {
     implicit val ec = scala.concurrent.ExecutionContext.Implicits.global
     implicit val system = akka.actor.ActorSystem()
 
@@ -115,7 +115,7 @@ object App {
 
     val fromURL = actor(new Act {
       become {
-        case url: String => sender ! scala.io.Source.fromURL(url)
+        case url: String => sender ! Source.fromURL(url)
           .getLines().mkString("\n")
       }
     })
