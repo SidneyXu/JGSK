@@ -47,6 +47,12 @@ object App {
       case _ => None
     })
     println(s"collect => $collectResult") //  List(None, Some(2), None, Some(4), None, Some(6))
+
+    //  ForEach
+    numbers1.foreach(println)
+
+    //  Parallel
+    numbers1.par.foreach(println)
   }
 
   def testParallelProcessCollection(): Unit = {

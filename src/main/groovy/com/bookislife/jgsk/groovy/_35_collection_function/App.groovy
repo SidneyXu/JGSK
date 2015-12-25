@@ -1,4 +1,4 @@
-package com.bookislife.jgsk.groovy.g04_collection_function
+package com.bookislife.jgsk.groovy._35_collection_function
 
 /**
  * Created by SidneyXu on 2015/12/24.
@@ -21,5 +21,8 @@ class App {
                 null
         }
         println("collect => $collectResult")    //  [null, 2, null, 4, null, 6]
+
+        //  ForEach
+        numbers1.each { println(it) }
     }
 }
