@@ -1,4 +1,4 @@
-package com.bookislife.jgsk.kotlin.k07_collection_function
+package com.bookislife.jgsk.kotlin._35_collection_function
 
 /**
  * Created by SidneyXu on 2015/12/24.
@@ -19,16 +19,29 @@ fun main(args: Array<String>) {
 
     //  Zip
     val zipResult1: List<Pair<Int, Int>> = numbers1.zip(numbers2)
-    println("zip1 => $zipResult1")
+    println("zip1 => $zipResult1")  //  [(1, 10), (2, 20), (3, 30)]
 
     val zipResult2: List<Pair<Int, Int>> = numbers2.zip(numbers1)
-    println("zip2 => $zipResult2")
+    println("zip2 => $zipResult2")  //  [(10, 1), (20, 2), (30, 3)]
 
     //  Reduce
-    val reduceResult = numbers1.reduce { n1, n2 -> n1 - n2 }
-    println("reduce => $reduceResult")
+    val reduceLeftResult = numbers1.reduce { n1, n2 -> n1 - n2 }
+    println("reduce => $reduceLeftResult")  //  -19
 
     val reduceRightResult = numbers1.reduceRight { n1, n2 -> n1 - n2 }
-    println("reduceRight => $reduceRightResult")
+    println("reduceRight => $reduceRightResult")    //  -3
 
+    //  Fold
+    val foldLeftResult = numbers1.fold(2) { n1, n2 -> n1 - n2 }
+    println("foldLeft => $foldLeftResult")  //  -19
+
+    val foldRightResult = numbers1.foldRight(0) { n1, n2 -> n1 - n2 }
+    println("foldRight => $foldRightResult")    //  -3
+
+    //  Filter
+    val filterResult = numbers1.filter { it % 2 == 0 }
+    println("filter => $filterResult")  //  [2, 4, 6]
+
+    //  ForEach
+    numbers1.forEach { println(it) }
 }
