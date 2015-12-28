@@ -71,6 +71,7 @@ object App {
     assert(() => 1 / 0 == 0)
     byNameAssert(1 / 0 == 0)
     //    booleanAssert(1 / 0 == 0)
+
   }
 
   def multiple(x: Int, y: Int): Int = x * y

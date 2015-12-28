@@ -36,7 +36,6 @@ class Cpu {
     int core
     String arch
 
-
     @Override
     public String toString() {
         return "Cpu{" +

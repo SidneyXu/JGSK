@@ -1,8 +1,8 @@
 package com.bookislife.jgsk.scala._16_method
 
 /**
- * Created by SidneyXu on 2015/09/22.
- */
+  * Created by SidneyXu on 2015/09/22.
+  */
 object App {
 
   def main(args: Array[String]) {
@@ -24,6 +24,13 @@ object App {
 
     //  Return Values
     println(calculator.add(2, 3))
+
+    //  Internal Method
+    var x = 1
+    def add(y: Int): Int = {
+      x + y
+    }
+    println(add(100))
   }
 
   def testClosure(): Unit = {
@@ -32,7 +39,7 @@ object App {
 
     ((x: Int, y: Int) => {
       println(s"$x plus $y is ${x + y}")
-    })(1, 3)
+    }) (1, 3)
 
     //  Closure as an Object
     val excite = (word: String) =>
@@ -65,7 +72,6 @@ object App {
       numbers.max
     }
     println(maxValue)
-
   }
 
   def say(name: String, word: String = "Hello"): Unit = {

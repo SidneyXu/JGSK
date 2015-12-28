@@ -4,8 +4,8 @@ import scala.collection.mutable
 import scala.collection.mutable.{ArrayBuffer, ListBuffer}
 
 /**
- * Created by SidneyXu on 2015/09/20.
- */
+  * Created by SidneyXu on 2015/09/20.
+  */
 object App {
 
   def main(args: Array[String]) {
@@ -26,6 +26,9 @@ object App {
 
     //  Access Elements
     println(arr(0))
+
+    //  Pretty Print
+    println(arr2.mkString(","))
 
     //  ArrayBuffer
     val abuffer = ArrayBuffer[Int]()

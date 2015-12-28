@@ -7,6 +7,7 @@ fun main(args: Array<String>) {
     testFor()
     testWhile()
     testRange()
+    testBreakAndContinue()
 }
 
 private fun testFor() {
@@ -54,3 +55,13 @@ private fun testRange() {
 
 }
 
+private fun testBreakAndContinue() {
+    for (i in 1..5) {
+        if (i == 3) continue
+        println("Continue $i")
+    }
+    for (i in 1..5) {
+        if (i == 3) break
+        println("Break $i")
+    }
+}
