@@ -16,6 +16,9 @@ class App {
         println(add10 { it + 2 })
 
         //  Curry
+        println(show2("(")("foobar")(")"))
+
+        //  Partial Application
         def show = { String prefix, String msg, String postfix ->
             prefix + msg + postfix
         }

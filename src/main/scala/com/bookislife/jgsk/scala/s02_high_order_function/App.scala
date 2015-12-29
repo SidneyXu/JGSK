@@ -19,7 +19,6 @@ object App {
     val multi = multiple _
     println(multi(3, 4)) //  12
 
-
     //  High Order Function
     //  Functions as Parameters
     add10({ i => i + 2 })

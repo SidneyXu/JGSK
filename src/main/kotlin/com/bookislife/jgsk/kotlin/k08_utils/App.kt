@@ -1,4 +1,4 @@
-package com.bookislife.jgsk.kotlin.k07_utils
+package com.bookislife.jgsk.kotlin.k08_utils
 
 import kotlin.util.measureTimeMillis
 
