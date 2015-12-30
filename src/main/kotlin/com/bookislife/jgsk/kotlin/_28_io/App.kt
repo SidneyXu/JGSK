@@ -48,4 +48,5 @@ fun main(args: Array<String>) {
     source.bufferedReader().useLines {
         it.filter(String::isNotBlank).toList()
     }
+
 }

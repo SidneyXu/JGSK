@@ -3,6 +3,7 @@ package com.bookislife.jgsk.java._32_shell;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.Scanner;
 
 /**
  * Created by SidneyXu on 2015/11/23.
@@ -58,5 +59,8 @@ public class App {
             e.printStackTrace();
         }
 
+        //  Console Input
+        Scanner scanner = new Scanner(System.in);
+        System.out.println(scanner.nextLine());
     }
 }

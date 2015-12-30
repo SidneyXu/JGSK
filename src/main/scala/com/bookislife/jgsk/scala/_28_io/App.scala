@@ -2,11 +2,11 @@ package com.bookislife.jgsk.scala._28_io
 
 import java.io.{File, FileWriter}
 
-import scala.io.Source
+import scala.io.{StdIn, Source}
 
 /**
- * Created by SidneyXu on 2015/10/18.
- */
+  * Created by SidneyXu on 2015/10/18.
+  */
 object App {
 
   def main(args: Array[String]) {
@@ -30,7 +30,7 @@ object App {
     }
 
     var source = Source.fromFile(file)
-        val lineIterator = source.getLines()
+    val lineIterator = source.getLines()
     for (l <- lineIterator) {
       println(l)
     }
