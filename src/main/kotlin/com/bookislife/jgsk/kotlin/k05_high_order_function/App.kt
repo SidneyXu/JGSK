@@ -4,8 +4,6 @@ package com.bookislife.jgsk.kotlin.k05_high_order_function
  * Created by SidneyXu on 2015/12/11.
  */
 fun main(args: Array<String>) {
-    //https://kotlinlang.org/docs/reference/lambdas.html
-
     //  Function Literal Syntax
     //  Type Inference
     val sum = { x: Int, y: Int -> x + y }
@@ -32,6 +30,7 @@ fun main(args: Array<String>) {
         this + x
     }
     println(a)  //  110
+
     val b = accept2 { x ->
         x + 10
     }

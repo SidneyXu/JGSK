@@ -16,7 +16,7 @@ fun main(args: Array<String>) {
     println(monday.ordinal)
 
     //  Define with the Ordinal
-    println(WeekDay.values[0])
+    println(WeekDay.values()[0])
 
 }
 

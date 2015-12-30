@@ -35,7 +35,4 @@ fun main(args: Array<String>) {
         }
     }
     println("duration is $duration")
-
-    val pair = Pair("foo", "bar")
-    println(pair.first)
 }
