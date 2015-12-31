@@ -21,9 +21,8 @@ fun main(args: Array<String>) {
     fos.write("hello kotlin".toByteArray())
     fos.close()
 
-    using {
-        fos = source.outputStream().autoClose()
-        fos.write("hello kotlin".toByteArray())
+    source.outputStream().use {
+        it.write("hello kotlin".toByteArray())
     }
 
     val lines = source.readLines("UTF-8")
@@ -34,26 +33,20 @@ fun main(args: Array<String>) {
     val contents = source.readText("UTF-8")
     println(contents)
 
-}
+    var target = File(filepath + ".copy")
+    source.copyRecursively(target) { file, e ->
+        OnErrorAction.SKIP
+    }
+    println(target.absoluteFile.extension)
+    println(target.absoluteFile.nameWithoutExtension)
 
-class ResourceHolder : AutoCloseable {
-    val resources = arrayListOf<AutoCloseable>()
-
-    fun <T : AutoCloseable> T.autoClose(): T {
-        resources.add(this)
-        return this
+    source.bufferedReader().use {
+        it.lineSequence()
+                .filter(String::isNotBlank)
+                .forEach { println(it) }
+    }
+    source.bufferedReader().useLines {
+        it.filter(String::isNotBlank).toList()
     }
 
-    override fun close() {
-        resources.reversed().forEach { it.close() }
-    }
-}
-
-fun <R> using(block: ResourceHolder.() -> R): R {
-    val holder = ResourceHolder()
-    try {
-        return holder.block()
-    } finally {
-        holder.close()
-    }
 }

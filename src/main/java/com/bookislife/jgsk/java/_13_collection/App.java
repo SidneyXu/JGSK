@@ -33,6 +33,10 @@ public class App {
         for (int a : arr2) {
             System.out.println("Traverse " + a);
         }
+
+        //  Pretty Print
+        System.out.println(Arrays.toString(arr2));
+
     }
 
     private static void testList() {

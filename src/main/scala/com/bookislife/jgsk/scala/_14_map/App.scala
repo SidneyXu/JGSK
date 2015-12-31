@@ -3,8 +3,8 @@ package com.bookislife.jgsk.scala._14_map
 import scala.collection.mutable
 
 /**
- * Created by SidneyXu on 2015/09/21.
- */
+  * Created by SidneyXu on 2015/09/21.
+  */
 object App {
 
   def main(args: Array[String]) {
@@ -29,6 +29,7 @@ object App {
 
     //  Mutable Map
     //  Define
+    val emptyMutableMap = mutable.HashMap()
     val mutableMap = mutable.HashMap("name" -> "Peter", "age" -> 12, "national" -> "USA")
 
     //  Put

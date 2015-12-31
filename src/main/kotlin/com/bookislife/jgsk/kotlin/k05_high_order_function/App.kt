@@ -1,7 +1,5 @@
 package com.bookislife.jgsk.kotlin.k05_high_order_function
 
-import java.util.concurrent.locks.Lock
-
 /**
  * Created by SidneyXu on 2015/12/11.
  */
@@ -19,45 +17,44 @@ fun main(args: Array<String>) {
     val x = add10 { it + 2 }
     println(x) //   12
 
-    //  Closure
-    var sum3 = 0
-    val ints = intArrayOf(1, 2, 3)
-    ints.filter { it > 0 }.forEach {
-        sum3 += it
-    }
-    println(sum3) //  6
-
     //  Curry
-    val scale20 = scale(0.2)
-    println(scale20(5.0))
-    println(scale(0.3)(5.0))
+    println(show2("(")("foobar")(")"))
 
-    //  Extension Function Expressions
-    val sum4 = fun Int.(other: Int): Int = this + other
-    println(1.sum4(2))  //  3
-    1.sum4(2)
+    //  Partial Application
+    val show = { prefix: String, msg: String, postfix: String ->
+        prefix + msg + postfix
+    }
+
+    //  Function Literals with Receiver
+    val a = accept { x ->
+        this + x
+    }
+    println(a)  //  110
+
+    val b = accept2 { x ->
+        x + 10
+    }
+    println(b)  //  20
 }
 
 fun add10(f: (Int) -> Int) = f(10)
 
 fun scale(factor: Double) = { x: Double -> x * factor }
 
-//  Function Types
-fun <T> max(collection: Collection<T>, less: (T, T) -> Boolean): T? {
-    var max: T? = null
-    for (it in collection)
-        if (max == null || less(max, it))
-            max = it
-    return max
+fun show2(prefix: String) = { msg: String ->
+    { postfix: String ->
+        prefix + msg + postfix
+    }
+
 }
 
-//  Inline Function
-inline fun <T> inlineLock(lock: Lock, body: () -> T,
-                          noinline notInlined: () -> T): T {
-    lock.lock()
-    try {
-        return body()
-    } finally {
-        lock.unlock()
-    }
+//  Function Literals with Receiver
+fun accept(dec: Int.(other: Int) -> Int): Int {
+    //  Receiver
+    val i = 100
+    return i.dec(10)
+}
+
+fun accept2(f: (Int) -> Int): Int {
+    return f(10)
 }

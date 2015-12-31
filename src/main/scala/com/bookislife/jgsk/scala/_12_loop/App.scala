@@ -1,14 +1,17 @@
 package com.bookislife.jgsk.scala._12_loop
 
+import scala.util.control.Breaks
+
 /**
- * Created by SidneyXu on 2015/09/19.
- */
+  * Created by SidneyXu on 2015/09/19.
+  */
 object App {
 
   def main(args: Array[String]) {
     testFor()
     testWhile()
     testPowerFor()
+    testBreakAndContinue()
   }
 
   def testFor(): Unit = {
@@ -63,5 +66,21 @@ object App {
                    if i != 3
     } yield i
     println(s"Repeat with Yield $ret")
+  }
+
+  def testBreakAndContinue(): Unit = {
+    for (i <- 1 to 5) {
+      Breaks.breakable {
+        if (i == 3) Breaks.break()
+        println("Continue " + i)
+      }
+    }
+
+    Breaks.breakable {
+      for (i <- 1 to 5) {
+        if (i == 3) Breaks.break()
+        println("Break " + i)
+      }
+    }
   }
 }

@@ -9,6 +9,7 @@ class App {
         testFor()
         testWhile()
         testRange()
+        testBreakAndContinue()
     }
 
     private static void testFor() {
@@ -45,5 +46,16 @@ class App {
             println "Repeat Range ${a}"
         }
         println("=====================")
+    }
+
+    private static void testBreakAndContinue() {
+        for (i in 1..5) {
+            if (i == 3) continue
+            println("Continue $i")
+        }
+        for (i in 1..5) {
+            if (i == 3) break
+            println("Break $i")
+        }
     }
 }

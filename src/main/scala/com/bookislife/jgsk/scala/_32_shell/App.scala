@@ -2,6 +2,7 @@ package com.bookislife.jgsk.scala._32_shell
 
 import java.io.File
 
+import scala.io.StdIn
 import scala.sys.process._
 
 /**
@@ -9,19 +10,22 @@ import scala.sys.process._
   */
 object App {
 
-    def main(args: Array[String]) {
-        val exitValue = "ls -al .." !
+  def main(args: Array[String]) {
+    val exitValue = "ls -al .." !
 
-        println(s"\nexit with $exitValue\n")
+    println(s"\nexit with $exitValue\n")
 
-        val result = "ls -al .." !!
+    val result = "ls -al .." !!
 
-        println(result)
+    println(result)
 
-        "ls -al .." #| "grep JGSK" !
+    "ls -al .." #| "grep JGSK" !
 
-        "ls -al .." #> new File("shell.txt") !
+    "ls -al .." #> new File("shell.txt") !
 
-        "ls -al .." #>> new File("shell.txt") !
-    }
+    "ls -al .." #>> new File("shell.txt") !
+
+    //  Console Input
+    println(StdIn.readLine())
+  }
 }

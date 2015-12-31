@@ -18,6 +18,13 @@ fun testMethod() {
 
     //  Return Values
     println(calculator.add(2, 3))
+
+    //  Internal Method
+    var x = 1
+    fun add(y: Int): Int {
+        return x + y
+    }
+    println(add(100))
 }
 
 
@@ -65,9 +72,9 @@ fun max(numbers: Array<Int>, s: (Array<Int>) -> Int): Int {
 }
 
 class Calculator {
-        fun add(x: Int, y: Int): Int {
-            return x + y
-        }
+    fun add(x: Int, y: Int): Int {
+        return x + y
+    }
 
     fun sum(vararg n: Int) {
         println(n.sum())

@@ -35,5 +35,12 @@ class App {
         println(s[6..9])    //  Worl
         println(s[6..<9])   //  Wor
         println(s - "l" - "World")  //  Helo
+
+        //  StringBuilder
+        def content = new StringBuilder()
+        content.append "hello"
+        content << ","
+        content << "\nworld"
+        content << "!" << "!"
     }
 }

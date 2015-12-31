@@ -5,6 +5,7 @@ package com.bookislife.jgsk.kotlin._14_map
  */
 fun main(args: Array<String>) {
     testMap()
+    testTuple()
 }
 
 fun testMap() {
@@ -50,4 +51,14 @@ fun testMap() {
         println("Traverse $k is $v")
     }
 
+}
+
+fun testTuple() {
+    //  Pair
+    val pair = Pair(1, "abc")
+    println(pair.first)
+
+    //  Triple
+    val triple = Triple(1, "abc", 2)
+    println(triple.second)
 }

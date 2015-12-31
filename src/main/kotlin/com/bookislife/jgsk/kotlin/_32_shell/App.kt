@@ -15,4 +15,7 @@ fun main(args: Array<String>) {
     process.inputStream.bufferedReader().lines().forEach {
         println(it)
     }
+
+    //  Console Input
+    println(readLine())
 }

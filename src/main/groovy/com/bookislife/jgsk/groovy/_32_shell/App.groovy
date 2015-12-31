@@ -23,5 +23,9 @@ class App {
             return
         }
         println "${p3.text}"
+
+        //  Console Input
+        def scanner = new Scanner(System.in)
+        println(scanner.nextLine())
     }
 }

@@ -31,5 +31,13 @@ public class App {
         //  Methods
         System.out.println(s.charAt(2));    //  l
         System.out.println(s.substring(6, 9));  //  Wor
+
+        //  StringBuilder
+        StringBuilder content = new StringBuilder();
+        content.append("hello");
+        content.append(",");
+        content.append("\nworld");
+        content.append("!").append("!");
+        System.out.println(content);
     }
 }

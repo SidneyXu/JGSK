@@ -1,5 +1,7 @@
 package com.bookislife.jgsk.scala._34_lazy
 
+import scala.util.Random
+
 /**
  * Created by SidneyXu on 2015/12/07.
  */
@@ -14,6 +16,20 @@ object App {
 
     println(s"Hello 1, ${a.lazyField}")
     println(s"Hello 2, ${a.lazyField}")
+
+    println()
+
+    a.init(1000000)
+
+    println(s"val=${a.valValue}") //  96
+    println(s"var=${a.varValue}") //  9
+    println(s"lazy val=${a.lazyValValue}") //  117261
+    println(s"def=${a.defValue}") //  798062
+
+    println(s"val=${a.valValue}") //  96
+    println(s"var=${a.varValue}") //  9
+    println(s"lazy val=${a.lazyValValue}") //  117261
+    println(s"def=${a.defValue}") //  937263
   }
 }
 
@@ -29,4 +45,16 @@ class A {
     Thread.sleep(3000)
     System.currentTimeMillis()
   }
+
+  var max = 100
+
+  def init(m: Int) = max = m
+
+  val valValue = Random.nextInt(max)
+
+  var varValue = Random.nextInt(max)
+
+  lazy val lazyValValue = Random.nextInt(max)
+
+  def defValue = Random.nextInt(max)
 }

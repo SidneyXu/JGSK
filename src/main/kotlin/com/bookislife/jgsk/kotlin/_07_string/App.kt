@@ -28,4 +28,13 @@ fun main(args: Array<String>) {
     //  Methods
     println(s[2])
     println(s.substring(5, 8))
+
+    //  StringBuilder
+    val content = buildString {
+        append("hello")
+        appendln(',')
+        append("world")
+        append("!", "!")
+    }
+    println(content)
 }
