@@ -6,28 +6,27 @@ import kotlin.util.measureTimeMillis
  * Created by SidneyXu on 2015/12/19.
  */
 fun main(args: Array<String>) {
-    //  Repeat
-    repeat(3) {
-        println(it)
+    //  Preconditions
+    var msg = "foobar"
+
+    if (msg.isEmpty()) {
+        throw IllegalArgumentException("Message is empty!")
     }
 
-    //  Preconditions
-    var msg = ""
-    //    require(msg.isNotEmpty()) {
-    //        "Message is empty!"
-    //    }
-    //
-    //    requireNotNull(msg) {
-    //        "Object is null!"
-    //    }
+    require(msg.isNotEmpty()) {
+        "Message is empty!"
+    }
 
-    val result = checkNotNull(msg) {
+    val result = requireNotNull(msg) {
         "Object is null!"
     }
     println(result)
 
+    //  Todo
     var error = NotImplementedError("not implemented")
-    error = TODO("todo")
+    error = TODO("Not implemented in current version")
+
+    //  Measure
     val duration = measureTimeMillis {
         var counter = 0
         repeat(100000000) {

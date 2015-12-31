@@ -7,6 +7,7 @@ fun main(args: Array<String>) {
     testFor()
     testWhile()
     testRange()
+    testRepeat()
     testBreakAndContinue()
 }
 
@@ -53,6 +54,12 @@ private fun testRange() {
 
     for (i in 1..4 step 2) print(i)
 
+}
+
+private fun testRepeat() {
+    repeat(3) {
+        println("Repeat $it times")
+    }
 }
 
 private fun testBreakAndContinue() {
