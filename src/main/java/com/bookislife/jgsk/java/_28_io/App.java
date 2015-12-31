@@ -1,7 +1,6 @@
 package com.bookislife.jgsk.java._28_io;
 
 import java.io.*;
-import java.util.Scanner;
 
 /**
  * Created by SidneyXu on 2015/10/18.

@@ -19,6 +19,9 @@ object App {
     //  Varargs
     calculator.sum(1, 2, 3)
 
+    //  Sequence as Multiple Parameters
+    calculator.sum(1 to 3: _*)
+
     //  Default Values
     say("Peter")
 

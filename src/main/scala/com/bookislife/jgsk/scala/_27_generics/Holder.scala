@@ -1,8 +1,8 @@
 package com.bookislife.jgsk.scala._27_generics
 
 /**
- * Created by mrseasons on 2015/10/08.
- */
+  * Created by SidneyXu on 2015/12/31.
+  */
 class Holder[A](val a: A) {
 }
 

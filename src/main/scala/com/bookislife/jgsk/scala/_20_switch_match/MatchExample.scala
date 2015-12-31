@@ -1,7 +1,7 @@
 package com.bookislife.jgsk.scala._20_switch_match
 
 /**
-  * Created by mrseasons on 2015/05/06.
+  * Created by SidneyXu on 2015/05/06.
   */
 object MatchExample {
 
