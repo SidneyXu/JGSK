@@ -6,6 +6,8 @@
 
 [一览](http://git.bookislife.com/topics/jgsk/)
 
+**Java vs Grooy vs Scala vs Kotlin**
+
 - [JGSK - 01.安装与运行](http://git.bookislife.com/post/2015/jgsk-01-start/)
 - [JGSK - 02.REPL 环境](http://git.bookislife.com/post/2015/jgsk-02-repl/)
 - [JGSK - 03.创建 Maven 工程](http://git.bookislife.com/post/2015/jgsk-03-maven-project/)
@@ -24,7 +26,11 @@
 - [JGSK - 15.类 - Groovy 篇](http://git.bookislife.com/post/2015/jsgk-15-class-groovy/)
 - [JGSK - 15.类 - Scala 篇](http://git.bookislife.com/post/2015/jsgk-15-class-scala/)
 - [JGSK - 15.类 - Kotlin 篇](http://git.bookislife.com/post/2015/jsgk-15-class-kotlin/)
-- JGSK - 16.方法（草稿）
+- [JGSK - 16.方法 Vs Lambda 表达式 Vs 闭包 - 共通篇](http://git.bookislife.com/post/2015/jgsk-16-method-lambda-closure-all/)
+- [JGSK - 16.方法 VsLambda 表达式 Vs 闭包 - Java 篇](http://git.bookislife.com/post/2015/jgsk-16-method-lambda-closure-java/)
+- [JGSK - 16.方法 VsLambda 表达式 Vs 闭包 - Groovy 篇]
+- [JGSK - 16.方法 Vs Lambda 表达式 Vs 闭包 - Scala 篇](http://git.bookislife.com/post/2015/jgsk-16-method-lambda-closure-scala/)
+- [JGSK - 16.方法 Vs Lambda 表达式 Vs 闭包 - Kotlin 篇](http://git.bookislife.com/post/2015/jgsk-16-method-lambda-closure-kotlin/)
 - [JGSK - 17.内部类](http://git.bookislife.com/post/2015/jgsk-17-innerclass/)
 - [JGSK - 18.类相关:Object - Scala 与 Kotlin 篇](http://git.bookislife.com/post/2015/jgsk-18-classobject-scalakotlin/)
 - [JGSK - 18.类相关:样本类 - Scala 篇](http://git.bookislife.com/post/2015/jgsk-18-classcaseclass-scala/)
@@ -41,3 +47,31 @@
 - []
 - [JGSK - 27.泛型 - Scala篇](http://git.bookislife.com/post/2015/jgsk-27-generic-scala/)
 - [JGSK - 27.泛型 - Kotlin篇](http://git.bookislife.com/post/2015/jgsk-27-generic-kotlin/)
+- [JGSK - 28.IO](http://git.bookislife.com/post/2015/2015-jgsk-io/)
+- [JGSK - 29. 与 Java 交互]
+- [JGSK - 30.Thread 与 Future](http://git.bookislife.com/post/2015/jgsk-30-thread-future/)
+- [JGSK - 31.Test](http://git.bookislife.com/post/2015/jgsk-31-test/)
+- [JGSK - 32.Shell](http://git.bookislife.com/post/2015/jgsk-32-shell/)
+- [JGSK - 33.Reflect 与 Annotation](http://git.bookislife.com/post/2015/jgsk-33-reflect-annotation/)
+- JGSK - 34.
+- [JGSK - 35.集合的函数式编程](http://git.bookislife.com/post/2015/jgsk-35-collection-function/)
+
+
+**Groovy**
+
+- [JGSK - Groovy - 01.高阶函数](http://git.bookislife.com/post/2015/jgsk-groovy-01-high-order-function/)
+
+**Scala**
+
+-
+
+**Kotlin**
+
+- [JGSK - Kotlin - 01.多重声明](http://git.bookislife.com/post/2015/jgsk-kotlin-01-mulitdecl/)
+- [JGSK - Kotlin - 02.Extension](http://git.bookislife.com/post/2015/jgsk-kotlin-02-extension/)
+- [JGSK - Kotlin - 03.委托](http://git.bookislife.com/post/2015/jgsk-kotlin-03-delegation/)
+- [JGSK - Kotlin - 04.This](http://git.bookislife.com/post/2015/jgsk-kotlin-04.this/)
+- [JGSK - Kotlin - 05.高阶函数](http://git.bookislife.com/post/2015/jgsk-kotlin-05-high-order-function/)
+- [JGSK - Kotlin - 06.DSL](http://git.bookislife.com/post/2015/jgsk-kotlin-06-dsl/)
+- [JGSK - Kotlin - 07.内联函数](http://git.bookislife.com/post/2015/jgsk-kotlin-07-inline-function/)
+- [JGSK - Kotlin - 08.Utils](http://git.bookislife.com/post/2015/jgsk-kotlin-08-utils/)
