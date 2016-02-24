@@ -1,6 +1,6 @@
 package com.bookislife.jgsk.kotlin.k08_utils
 
-import kotlin.util.measureTimeMillis
+import kotlin.system.measureTimeMillis
 
 /**
  * Created by SidneyXu on 2015/12/19.

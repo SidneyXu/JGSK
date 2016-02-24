@@ -25,12 +25,12 @@ fun main(args: Array<String>) {
         it.write("hello kotlin".toByteArray())
     }
 
-    val lines = source.readLines("UTF-8")
+    val lines = source.readLines(Charsets.UTF_8)
     for (l in lines) {
         println(l)
     }
 
-    val contents = source.readText("UTF-8")
+    val contents = source.readText(Charsets.UTF_8)
     println(contents)
 
     var target = File(filepath + ".copy")

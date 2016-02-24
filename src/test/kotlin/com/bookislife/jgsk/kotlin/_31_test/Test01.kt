@@ -2,7 +2,6 @@ package com.bookislife.jgsk.kotlin._31_test
 
 import junit.framework.TestCase
 import org.mockito.Mockito
-import kotlin.test.assertEquals
 
 /**
  * Created by SidneyXu on 2015/11/18.

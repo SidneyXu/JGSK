@@ -41,7 +41,7 @@ fun testList() {
     println(list[0])
 
     //  MutableList
-    val mList = linkedListOf("Groovy", "Java", "Scala")
+    val mList = mutableListOf("Groovy", "Java", "Scala")
     mList.add("Ruby")
     mList.remove("Java")
     println(mList)  //  [a, b, c, d]

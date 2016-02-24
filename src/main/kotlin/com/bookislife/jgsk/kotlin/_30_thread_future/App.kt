@@ -21,7 +21,7 @@ fun main(args: Array<String>) {
     }
     println("sync")
     thread(start = false,
-            daemon = true,
+            isDaemon = true,
             name = "t1") {
         println("running")
     }.start()

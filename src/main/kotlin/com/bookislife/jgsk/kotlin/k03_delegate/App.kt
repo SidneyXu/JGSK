@@ -1,8 +1,6 @@
 package com.bookislife.jgsk.kotlin.k03_delegate
 
 import kotlin.properties.Delegates
-import kotlin.properties.getValue
-import kotlin.properties.setValue
 import kotlin.reflect.KProperty
 
 /**

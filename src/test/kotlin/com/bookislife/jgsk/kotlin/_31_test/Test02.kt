@@ -4,7 +4,6 @@ import org.junit.After
 import org.junit.Before
 import org.junit.Test
 import org.mockito.Mockito
-import kotlin.test.assertEquals
 
 /**
  * Created by SidneyXu on 2015/11/18.
