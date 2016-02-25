@@ -26,7 +26,7 @@ class Test01 : TestCase() {
     }
 
     fun testMock() {
-        val calculator = Mockito.mock<Calculator>(javaClass<Calculator>())
+        val calculator = Mockito.mock<Calculator>(Calculator::class.java)
         Mockito.`when`<Int>(calculator.sum(1, 2)).thenReturn(10)
         assert(10 == calculator.sum(1, 2))
         assert(0 == calculator.sum(1, 20))

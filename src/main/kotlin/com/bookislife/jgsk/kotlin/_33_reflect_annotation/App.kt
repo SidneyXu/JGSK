@@ -35,7 +35,7 @@ fun main(args: Array<String>) {
     factory(::Person)
 
     val bean = clazz.annotations.first {
-        it.annotationType().typeName == Bean::class.qualifiedName
+        it.annotationClass.qualifiedName == Bean::class.qualifiedName
     } as Bean
     println("name is ${bean.name}") //  t_person
 
@@ -43,7 +43,7 @@ fun main(args: Array<String>) {
     properties.filter {
         it.annotations.isNotEmpty()
     }.forEach {
-        println(it.annotations[0].annotationType().name)
+        println(it.annotations[0].annotationClass.simpleName)
     }
 
     val functions = clazz.declaredMemberFunctions
@@ -51,7 +51,7 @@ fun main(args: Array<String>) {
         it.annotations.isNotEmpty()
     }.forEach {
         println(it.name)
-        println(it.annotations[0].annotationType().name)    //  BeanMethod
+        println(it.annotations[0].annotationClass.simpleName)    //  BeanMethod
 
         val beanMethod = it.annotations[0] as BeanMethod
         println("alias is ${beanMethod.alias}") //  hello

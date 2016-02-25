@@ -1,6 +1,7 @@
 package com.bookislife.jgsk.kotlin._31_test
 
 import org.junit.After
+import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
 import org.mockito.Mockito
@@ -30,7 +31,7 @@ class Test02 {
 
     @Test
     fun testMock() {
-        val calculator = Mockito.mock<Calculator>(javaClass<Calculator>())
+        val calculator = Mockito.mock<Calculator>(Calculator::class.java)
         Mockito.`when`<Int>(calculator.sum(1, 2)).thenReturn(10)
         assert(10 == calculator.sum(1, 2))
         assert(0 == calculator.sum(1, 20))
