@@ -13,6 +13,7 @@ fun testArray() {
     //  Define
     val arr = arrayOfNulls<Int>(3)
     val arr2 = arrayOf(1, 2, 3)
+    val empty = arrayOf<Int>()
 
     //  Length
     println(arr.size)
