@@ -20,6 +20,7 @@ class Person {
 
     //  Backing field
     var backAge: Int = 0
+        get() = field
         set(pAge) {
             if (pAge > field) {
                 field = pAge
