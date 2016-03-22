@@ -8,6 +8,11 @@ fun main(args: Array<String>) {
     val thread = Thread(Runnable {
 
     })
+    assertTrue(object : Assertion {
+        override fun test(): Boolean {
+            return true
+        }
+    })
 
     //  Inner Class
     val outter1 = Outter("Outter1")
@@ -23,16 +28,38 @@ fun main(args: Array<String>) {
 
     outter1.foo(inner1) //  Outter1-Inner1
     outter1.foo(inner2) //  Outter1-Inner2
+
+    val nested1 = Outter.Nested("Nested1")
+    val nested2 = Outter.Nested("Nested2")
+
+    println("nested1 is ${nested1.javaClass}")    //  _innerclass.Outter$Nested
+    println("nested2 is ${nested2.javaClass}")    //  _innerclass.Outter$Nested
+
+    outter1.bar(nested1) //  nested1
+    outter1.bar(nested2) //  nested2
+}
+
+fun assertTrue(assert: Assertion): Boolean = assert.test()
+
+interface Assertion {
+    fun test(): Boolean
 }
 
 class Outter(val name: String) {
 
-    inner class Inner(val name: String) {
-        fun desc() = "${this@Outter.name}-${name}"
+    inner class Inner(private val name: String) {
+        fun desc() = "${this@Outter.name}-$name"
     }
 
-    fun foo(bar: Inner) {
-        println(bar.desc())
+    class Nested(private val name: String) {
+        fun desc() = "$name"
     }
 
+    fun foo(obj: Inner) {
+        println(obj.desc())
+    }
+
+    fun bar(obj: Nested) {
+        println(obj.desc())
+    }
 }
