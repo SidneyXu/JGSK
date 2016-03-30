@@ -40,11 +40,13 @@ fun main(args: Array<String>) {
 
     //  Return value in finally
     val m = try {
-        "99".toInt()
+        "a99".toInt()
     } catch(e: Exception) {
         -99
+    } finally {
+        100
     }
-    println(m)
+    println(m)  //  -99
 
     //  Illegal!
     //    fun f(): Int = try {
@@ -76,6 +78,26 @@ fun main(args: Array<String>) {
     println(f2()) //  2
     println(g()) //  1
 
+
+    try {
+        // do something
+    } catch(e: FileNotFoundException) {
+        println("Catch block")
+    } catch(e: MyException) {
+        println("Another catch block")
+    } finally {
+        println("Finally block")
+    }
+}
+
+fun callback(callback: () -> Unit) {
+    try {
+        callback()
+    } catch(e: FileNotFoundException) {
+        println("Some errors occur in closure.")
+    } catch(e: MyException) {
+        println("Some errors occur in closure.")
+    }
 }
 
 class MyBean {
