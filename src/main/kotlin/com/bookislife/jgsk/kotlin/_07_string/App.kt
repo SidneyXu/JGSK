@@ -20,10 +20,23 @@ fun main(args: Array<String>) {
     "x, "y", "z""""
     println(text)
 
+    // Margin Prefix
+    val textWithMargin =
+            """
+            |Tell me and I forget.
+    |Teach me and I remember.
+|Involve me and I learn.
+    |(Benjamin Franklin)
+            """.trimMargin()
+    println(textWithMargin)
+
     //  Template
     val name = "Peter";
     val str = "name=${name}, ${if (name.length > 10) 10 else name.length}"
     println(str)    //  name=Peter, 5
+
+    // Escaped String
+    println("name=${'$'}{name}")
 
     //  Methods
     println(s[2])
