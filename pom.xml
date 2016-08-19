@@ -22,7 +22,7 @@
         <kotlin.version>1.0.0</kotlin.version>
         <junit.version>4.12</junit.version>
         <mockito.version>1.10.19</mockito.version>
-        <spek.version>0.1.180</spek.version>
+        <spek.version>1.0.9</spek.version>
         <spec2.version>3.6.5</spec2.version>
         <scalatest.version>2.2.2</scalatest.version>
         <json4s-jackson>3.2.10</json4s-jackson>
@@ -126,7 +126,6 @@
             <groupId>org.jetbrains.spek</groupId>
             <artifactId>spek</artifactId>
             <version>${spek.version}</version>
-            <type>pom</type>
             <scope>test</scope>
         </dependency>
         <dependency>
