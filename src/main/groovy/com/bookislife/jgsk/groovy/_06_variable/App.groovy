@@ -5,7 +5,7 @@ package com.bookislife.jgsk.groovy._06_variable
  */
 class App {
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         //  Variable
         String variable = "foo"
         variable = "bar"

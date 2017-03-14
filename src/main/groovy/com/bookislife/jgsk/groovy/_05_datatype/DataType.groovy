@@ -27,7 +27,7 @@ class DataType {
         dynamicDate = 2
 
         //  BigDecimal
-        println(2.0 - 1.8); //  0.2
+        println(2.0 - 1.8) //  0.2
 
         //  Type Conversion
         //  Implicit Conversion
