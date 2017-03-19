@@ -26,7 +26,9 @@ public class App {
         String str = "name=$name, ${name.length()}";
         System.out.println(
                 str.replace("$name", name)
-                        .replace("${name.length}", "" + name.length()));
+                        .replace("${name.length()}", "" + name.length()));
+        //  Format Api
+        System.out.println(String.format("name=%s, %d", name, name.length()));
 
         //  Methods
         System.out.println(s.charAt(2));    //  l
