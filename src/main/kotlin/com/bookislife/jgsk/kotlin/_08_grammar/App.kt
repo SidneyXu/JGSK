@@ -14,7 +14,7 @@ fun main(args: Array<String>) {
 
     //  Elvis Operator
     val agentStatus = "Active"
-    val status = agentStatus ?: "Inactive"
+    val statusElvis = agentStatus ?: "Inactive"
 
     //  Call Methods
     add(1, 2)
