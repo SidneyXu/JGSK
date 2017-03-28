@@ -5,7 +5,7 @@ package com.bookislife.jgsk.groovy._10_script
  */
 class App {
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         //  Run Scripts
         //  The script name must follow the Java naming rules.
         def scope = new scriptTest()
