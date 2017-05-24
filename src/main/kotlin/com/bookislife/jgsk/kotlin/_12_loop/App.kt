@@ -14,7 +14,7 @@ fun main(args: Array<String>) {
 private fun testFor() {
     val arr = intArrayOf(1, 2, 3)
     for (a in arr) {
-        println("Repeat For-Each $a");
+        println("Repeat For-Each $a")
     }
 
     for (i in arr.indices) {
@@ -25,7 +25,7 @@ private fun testFor() {
 private fun testWhile() {
     val arr = intArrayOf(1, 2, 3)
     var i = 0
-    while ( i < arr.size) {
+    while (i < arr.size) {
         println("Repeat While ${arr[i++]}")
     }
     i = 0

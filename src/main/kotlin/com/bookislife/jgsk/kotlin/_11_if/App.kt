@@ -8,13 +8,13 @@ fun main(args: Array<String>) {
     val x = 1
     val y = 2
     if (x + y == 3) {
-        println ("x+y=3")
+        println("x+y=3")
     } else {
-        println ("x+y!=3")
+        println("x+y!=3")
     }
 
     if (x + y == 3)
-        println ("x+y=3")
+        println("x+y=3")
     else
-        println ("x+y!=3")
+        println("x+y!=3")
 }

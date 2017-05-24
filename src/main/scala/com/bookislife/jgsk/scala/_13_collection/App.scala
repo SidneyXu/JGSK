@@ -85,7 +85,7 @@ object App {
         //  Works internally with LinkedList
         var mutableList = new mutable.MutableList[Int]
         mutableList += 1
-        mutableList +=(2, 3, 5)
+        mutableList += (2, 3, 5)
         println(s"mutableList(1) is ${mutableList(1)}") //  2
         println(mutableList) //  (1, 2, 3, 5)
 
@@ -93,7 +93,7 @@ object App {
         //  Uses internally Nil and :: to build an immutable List
         var listBuffer = new ListBuffer[Int]
         listBuffer += 1
-        listBuffer +=(2, 3, 5)
+        listBuffer += (2, 3, 5)
         println(s"listBuffer(1) is ${listBuffer(1)}") //  2
         println(listBuffer) //  (1, 2, 3, 5)
         listBuffer -= 2
@@ -127,7 +127,7 @@ object App {
 
     def testSet(): Unit = {
         var set = mutable.HashSet(1, 2, 3)
-        set +=(3, 4, 5)
+        set += (3, 4, 5)
         println(set) //  Set(1, 5, 2, 3, 4)
     }
 

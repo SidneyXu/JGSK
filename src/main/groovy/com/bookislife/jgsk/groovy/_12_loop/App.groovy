@@ -5,7 +5,7 @@ package com.bookislife.jgsk.groovy._12_loop
  */
 class App {
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         testFor()
         testWhile()
         testRange()

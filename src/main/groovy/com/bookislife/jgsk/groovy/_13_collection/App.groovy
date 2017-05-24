@@ -5,7 +5,7 @@ package com.bookislife.jgsk.groovy._13_collection
  */
 class App {
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         testArray()
         testList()
         testRange()
@@ -27,7 +27,7 @@ class App {
 
         //  Traverse
         for (int a : arr2) {
-            println("Traverse " + a);
+            println("Traverse " + a)
         }
     }
 
@@ -54,7 +54,7 @@ class App {
         //[Groovy, Java, Scala, Rust, Katlin, null, null, null, null, null, Python, Ruby]
 
         //  Delete Elements
-        list.remove(1);
+        list.remove(1)
 
         //  Access Elements
         println list[2]         //Scala
@@ -87,7 +87,7 @@ class App {
 
         //  Traverse
         for (lang in list) {
-            println("Traverse " + lang);
+            println("Traverse " + lang)
         }
     }
 
