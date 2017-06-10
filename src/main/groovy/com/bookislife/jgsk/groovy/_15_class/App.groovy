@@ -5,7 +5,7 @@ package com.bookislife.jgsk.groovy._15_class
  */
 class App {
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         testPerson()
         testMan()
         testImmutableSong()
