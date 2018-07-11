@@ -5,7 +5,7 @@ package com.bookislife.jgsk.groovy._08_grammar
  */
 class App {
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         //  Operators
         def i = 1
         i++
@@ -15,9 +15,10 @@ class App {
 
         //  Elvis Operator
         String agentStatus = "Active"
-//        String status = (agentStatus !=null && !"".equals(agentStatus)) ? "Active" : "Inactive"
-        String status = agentStatus ?: "Inactive"
-        println(status)
+        //  Ternary operator
+        String statusTernary = (agentStatus != null && !"".equals(agentStatus)) ? "Active" : "Inactive"
+        String statusElvis = agentStatus ?: "Inactive"
+        println(statusElvis)
 
         //  Call Methods
         println add(1, 2)
@@ -29,6 +30,8 @@ class App {
         println(null == 10) //  false
         println("x==y: " + (x == y))    //  true
         println("x.equals(y): " + x.equals(y))  //  true
+
+        //  Like Java's '=='
         println("x.is(y): " + x.is(y))  //  false
     }
 

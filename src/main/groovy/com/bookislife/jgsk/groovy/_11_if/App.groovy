@@ -5,7 +5,7 @@ package com.bookislife.jgsk.groovy._11_if
  */
 class App {
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         //  If
         def x = 1
         def y = 2
