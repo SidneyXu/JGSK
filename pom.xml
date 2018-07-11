@@ -11,15 +11,15 @@
     <properties>
         <project.build.encoding>UTF-8</project.build.encoding>
         <jdk.version>1.8</jdk.version>
-        <maven-compiler-plugin.verion>3.2</maven-compiler-plugin.verion>
-        <maven-resources-plugin.version>2.7</maven-resources-plugin.version>
-        <groovy.version>2.4.9</groovy.version>
+        <maven-compiler-plugin.verion>3.5.1</maven-compiler-plugin.verion>
+        <maven-resources-plugin.version>3.1.0</maven-resources-plugin.version>
+        <groovy.version>2.5.0</groovy.version>
         <gmavenplus-plugin.version>1.5</gmavenplus-plugin.version>
-        <scala.version>2.12.1</scala.version>
+        <scala.version>2.12.6</scala.version>
         <akka-actor.version>2.3.11</akka-actor.version>
         <scala-xml.version>1.0.5</scala-xml.version>
         <scala-maven-plugin.version>3.2.0</scala-maven-plugin.version>
-        <kotlin.version>1.1.0</kotlin.version>
+        <kotlin.version>1.2.51</kotlin.version>
         <junit.version>4.12</junit.version>
         <mockito.version>1.10.19</mockito.version>
         <spek.version>1.0.9</spek.version>

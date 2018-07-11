@@ -1,7 +1,5 @@
 package com.bookislife.jgsk.kotlin._33_reflect_annotation
 
-import kotlin.reflect.declaredMemberFunctions
-import kotlin.reflect.declaredMemberProperties
 import kotlin.reflect.jvm.javaField
 import kotlin.reflect.jvm.javaGetter
 
@@ -39,14 +37,14 @@ fun main(args: Array<String>) {
     } as Bean
     println("name is ${bean.name}") //  t_person
 
-    val properties = clazz.declaredMemberProperties
+    val properties = clazz.members
     properties.filter {
         it.annotations.isNotEmpty()
     }.forEach {
         println(it.annotations[0].annotationClass.simpleName)
     }
 
-    val functions = clazz.declaredMemberFunctions
+    val functions = clazz.members
     functions.filter {
         it.annotations.isNotEmpty()
     }.forEach {

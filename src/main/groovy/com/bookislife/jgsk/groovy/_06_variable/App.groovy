@@ -22,7 +22,7 @@ class App {
 
         //  Constant
         final String constant = "foo"
-        //Bug, see https://issues.apache.org/jira/browse/GROOVY-1628
-        constant = 10
+        // Bug fix after 2.5.0, see https://issues.apache.org/jira/browse/GROOVY-1628
+        // constant = 10
     }
 }
