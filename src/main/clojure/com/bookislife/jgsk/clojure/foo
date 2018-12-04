@@ -1,0 +1,22 @@
+;let
+;Bind
+;similar to private variable
+(let [name "Peter"
+      age 18]
+  (println (str "My name is " name "," age " years old.")))
+;(println name)
+
+;binding execute immediately, so each binding can see prior
+(let [x 10
+      result (+ x 20)]
+  (println result))
+
+;scope
+(let [a 10]
+  (let [a 100]
+    (println a))
+  (println a))
+
+(let [b 10]
+  (let []
+    (println b)))

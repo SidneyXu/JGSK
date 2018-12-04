@@ -1,0 +1,2 @@
+;Symbol
+(println type 'a)
